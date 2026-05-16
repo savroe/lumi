@@ -74,19 +74,24 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
-      padding: 8rem 5vw 5rem;
+      padding: 7rem 0vw 0rem;
       gap: 4rem;
+    }
+    .hero-text {
+      padding-left: 40px;
     }
     .hero-text h1 {
       font-family: var(--serif);
-      font-size: clamp(3rem, 5vw, 5.2rem);
+      font-size: clamp(3rem, 4.5vw, 5.2rem);
       line-height: 1.05;
       color: var(--brown);
       margin-bottom: 1.5rem;
+      
     }
     .hero-text h1 em {
       font-style: italic;
       color: var(--terracotta);
+      
     }
     .hero-text p {
       font-size: 1.1rem;
@@ -94,18 +99,20 @@
       color: #5a3a2e;
       max-width: 46ch;
       margin-bottom: 2.5rem;
+      
     }
     .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn-primary {
       display: inline-block;
       background: var(--terracotta);
       color: #fff;
-      padding: .95rem 2.25rem;
+      padding: 15px 20px;
       border-radius: 100px;
       text-decoration: none;
       font-weight: 500;
       font-size: .95rem;
       transition: background .2s, transform .15s;
+      padding-left: 24px;
     }
     .btn-primary:hover { background: var(--brown); transform: translateY(-2px); }
     .hero-visual {
@@ -122,7 +129,7 @@
       min-height: 560px;
       background: linear-gradient(180deg, #ffe2ce 0%, #f8b48f 45%, #e35433 100%);
       border-radius: 40px;
-      padding: 3.5rem 2.5rem;
+      padding: 3.5rem 15px;
       box-shadow: 0 35px 80px rgba(227, 83, 54, 0.18);
       overflow: hidden;
       display: flex;
@@ -282,10 +289,10 @@
     }
 
     /* ── WORK ── */
-    #work { background: var(--ink); }
-    #work .section-label { color: var(--peach); opacity: .7; }
+    #work { background: #2a2018; }
+    #work .section-label { color: var(--peach); opacity: .6; }
     #work .section-title { color: var(--peach); }
-    #work .section-sub { color: rgba(255, 211, 172, 0.65); }
+    #work .section-sub { color: rgba(255, 211, 172, 0.55); }
 
     .work-grid {
       display: grid;
@@ -340,7 +347,7 @@
     }
     .work-info {
       padding: 1.25rem 1.5rem;
-      background: rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.08);
       border-top: none;
       border-radius: 0 0 20px 20px;
@@ -351,7 +358,7 @@
       color: var(--peach);
       margin-bottom: .3rem;
     }
-    .work-info p { font-size: .82rem; color: rgba(255, 211, 172, 0.5); }
+    .work-info p { font-size: .82rem; color: rgba(255, 211, 172, 0.45); }
 
     /* ── PROCESS ── */
     .process-steps {
@@ -539,10 +546,19 @@
       color: var(--peach);
       text-decoration: none;
     }
+    .footer-branding {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
     .footer-links { display: flex; gap: 2rem; list-style: none; }
     .footer-links a { font-size: .85rem; color: rgba(255, 211, 172, 0.5); text-decoration: none; transition: color .2s; }
     .footer-links a:hover { color: var(--peach); }
-    .footer-copy { font-size: .8rem; color: rgba(255, 211, 172, 0.3); }
+    .footer-social { display: flex; gap: 1.5rem; }
+    .footer-social a { font-size: 1.2rem; color: rgba(255, 211, 172, 0.6); text-decoration: none; transition: color .2s; }
+    .footer-social a:hover { color: var(--peach); }
+    .footer-copy { font-size: .8rem; color: rgba(255, 211, 172, 0.5); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -571,7 +587,7 @@
   <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo">
-      <img src="images/Logo-Main.svg" alt="Lumi Design logo">
+      <img src="../Assets/Logo-Main.svg" alt="Lumi Design logo">
     </a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
@@ -587,13 +603,13 @@
     <div class="hero-text">
       <div class="section-label">Freelance Web Designer</div>
       <h1>Websites that make people <em>stop scrolling.</em></h1>
-      <p>Lumi Design crafts beautiful, high-converting websites for brands that care about how they show up online.</p>
+      <p>I build sites that turn heads, win trust, and actually grow your business.</p>
       <div class="btn-group">
-        <a href="#contact" class="btn-primary">Start a Project</a>
+        <a href="#contact" class="btn-primary">Let's Chat!</a>
       </div>
     </div>
     <div class="hero-visual">
-      <img src="images/Hero.png" alt="Lumi Design hero image" style="width: 100%; height: auto; border-radius: 12px;">
+      <img src="../Assets/Hero.png" alt="Lumi Design hero image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
     </div>
   </section>
 
@@ -603,14 +619,14 @@
       <span>Web Design</span><span class="dot">·</span>
       <span>Brand Identity</span><span class="dot">·</span>
       <span>Figma Prototyping</span><span class="dot">·</span>
-      <span>Webflow Development</span><span class="dot">·</span>
+      <span>Web Development</span><span class="dot">·</span>
       <span>UX Strategy</span><span class="dot">·</span>
       <span>Landing Pages</span><span class="dot">·</span>
       <span>E-Commerce</span><span class="dot">·</span>
       <span>Web Design</span><span class="dot">·</span>
       <span>Brand Identity</span><span class="dot">·</span>
       <span>Figma Prototyping</span><span class="dot">·</span>
-      <span>Webflow Development</span><span class="dot">·</span>
+      <span>Web Development</span><span class="dot">·</span>
       <span>UX Strategy</span><span class="dot">·</span>
       <span>Landing Pages</span><span class="dot">·</span>
       <span>E-Commerce</span><span class="dot">·</span>
@@ -619,32 +635,33 @@
 
   <!-- SERVICES -->
   <section id="services">
-    <div class="section-label">What I Offer</div>
-    <h2 class="section-title">Services tailored<br>to your goals</h2>
-    <p class="section-sub">From initial concept to final launch, I offer end-to-end design services that help your business grow online.</p>
+    <div class="section-label">What I Do</div>
+    <h2 class="section-title">I build the whole thing</h2>
+    <p class="section-sub">How it looks, what it says, and how people find it.
+No confusing packages. No handing you off to someone else. Just a website that works.</p>
     <div class="services-grid">
       <div class="service-card">
         <div class="service-icon">✦</div>
         <h3>Website Design</h3>
-        <p>Custom, conversion-focused website designs built around your brand. Every pixel is intentional — from layout to typography to micro-interactions.</p>
+        <p>Your website is usually the first impression someone gets of your business, and first impressions stick. I design sites that look intentional, feel easy to navigate, and actually reflect what makes you different. Everything is built to look great on any device.</p>
         <div class="service-tags">
-          <span>Figma</span><span>Responsive</span><span>UI/UX</span><span>Prototyping</span>
+          <span>Figma</span><span>Responsive</span><span>UI/UX</span><span>Mobile</span><span>Web Design</span>
         </div>
       </div>
       <div class="service-card">
         <div class="service-icon">◈</div>
         <h3>Brand Identity</h3>
-        <p>Cohesive visual systems that communicate who you are at a glance. Logos, color palettes, typography, and brand guidelines you'll actually use.</p>
+        <p>Your website, your socials, your colors - they should all feel like they belong to the same business. I take what you already have and make it all feel intentional, consistent, and unmistakably you.</p>
         <div class="service-tags">
-          <span>Logo Design</span><span>Style Guide</span><span>Typography</span>
+          <span>Colors</span><span>Style Guide</span><span>Typography</span>
         </div>
       </div>
       <div class="service-card">
         <div class="service-icon">⬡</div>
-        <h3>Webflow Development</h3>
-        <p>I bring designs to life with pixel-perfect Webflow builds — no-code, fast-loading, and easy for you to manage without touching a line of code.</p>
+        <h3>Search Engine Optimization (SEO)</h3>
+        <p>You shouldn't have to rely on word of mouth forever. I make sure your site is set up so that when someone searches for what you do in your area, you're actually showing up. It's one of the best things you can do for your business, just customers finding you on their own.</p>
         <div class="service-tags">
-          <span>Webflow</span><span>CMS</span><span>Animations</span><span>SEO</span>
+          <span>SEO</span><span>Google Analytics</span>
         </div>
       </div>
     </div>
@@ -656,47 +673,216 @@
     <h2 class="section-title">Work I'm proud of</h2>
     <p class="section-sub">A curated look at recent projects spanning e-commerce, SaaS, and lifestyle brands.</p>
     <div class="work-grid">
-      <div class="work-card">
-        <div class="work-thumb">
-          <div class="work-mock">
-            <div class="work-mock-bar w80"></div>
-            <div class="work-mock-bar w60"></div>
-            <div class="work-mock-bar w45"></div>
-            <div class="work-mock-grid">
-              <div class="work-mock-block"></div>
-              <div class="work-mock-block"></div>
+
+      <!-- SDM CARD — full width featured -->
+      <div class="work-card" style="grid-column: 1 / -1;" onclick="window.open('#','_blank')">
+        <div class="work-thumb" style="height:480px; background:#2C4A38; display:block; overflow:hidden; position:relative;">
+
+          <!-- mini site preview -->
+          <div style="position:absolute;inset:0;transform:scale(1);transition:transform .5s ease;">
+
+            <!-- nav bar -->
+            <div style="background:#1a2e22;padding:8px 20px;display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-family:Georgia,serif;font-size:11px;font-style:italic;color:#C4722A;">Spaghetti di Mezzanotte</span>
+              <div style="display:flex;gap:14px;">
+                <span style="font-size:8px;letter-spacing:2px;color:rgba(245,239,224,0.4);text-transform:uppercase;">Menu</span>
+                <span style="font-size:8px;letter-spacing:2px;color:rgba(245,239,224,0.4);text-transform:uppercase;">About</span>
+                <span style="font-size:8px;letter-spacing:2px;color:rgba(245,239,224,0.4);text-transform:uppercase;">Location</span>
+                <span style="background:#C4722A;color:#F5EFE0;font-size:8px;letter-spacing:1px;padding:3px 8px;text-transform:uppercase;">Reserve</span>
+              </div>
+            </div>
+
+            <!-- hero -->
+            <div style="background:#2C4A38;padding:28px 20px 22px;display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center;">
+              <div>
+                <div style="font-family:Impact,Arial Black,sans-serif;font-size:52px;color:#C4722A;line-height:0.9;text-transform:uppercase;">SPAGH<br>ETTI</div>
+                <div style="margin:6px 0;"><span style="background:#C4722A;color:#F5EFE0;font-family:Impact,sans-serif;font-size:10px;padding:2px 10px;border-radius:10px;letter-spacing:3px;">de</span></div>
+                <div style="font-family:Impact,Arial Black,sans-serif;font-size:52px;color:#C4722A;line-height:0.9;text-transform:uppercase;">MEZZA<br>NOTTE</div>
+                <div style="margin-top:10px;font-size:8px;letter-spacing:3px;color:rgba(245,239,224,0.4);text-transform:uppercase;">Venice Beach · Dinner Only</div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:10px;">
+                <p style="font-family:Georgia,serif;font-size:11px;line-height:1.6;color:rgba(245,239,224,0.75);font-style:italic;">"A late-night trattoria for the unhurried. We cook one thing, and we cook it right."</p>
+                <div style="display:flex;gap:8px;">
+                  <span style="background:#C4722A;color:#F5EFE0;font-size:8px;letter-spacing:2px;padding:6px 12px;text-transform:uppercase;">Reserve</span>
+                  <span style="border:1px solid rgba(196,114,42,0.5);color:#C4722A;font-size:8px;letter-spacing:2px;padding:6px 12px;text-transform:uppercase;">Menu</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- ticker -->
+            <div style="background:#C4722A;padding:6px 0;font-family:Impact,sans-serif;font-size:9px;letter-spacing:3px;color:#F5EFE0;text-align:center;text-transform:uppercase;">
+              Handmade in California &nbsp;·&nbsp; Open til Midnight &nbsp;·&nbsp; Slow Food Fast Vibes &nbsp;·&nbsp; Est. 2024
+            </div>
+
+            <!-- about strip -->
+            <div style="background:#F5EFE0;padding:18px 20px;display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center;">
+              <div>
+                <div style="font-size:8px;letter-spacing:3px;text-transform:uppercase;color:#C4722A;margin-bottom:6px;">Our Story</div>
+                <div style="font-family:Impact,Arial Black,sans-serif;font-size:24px;color:#2C4A38;text-transform:uppercase;line-height:1;">BORN AT<br>MIDNIGHT</div>
+              </div>
+              <div>
+                <p style="font-family:Georgia,serif;font-size:9px;line-height:1.6;color:#5a4030;font-style:italic;">Every shape of pasta is made by hand each morning. Every sauce begins with the same patience our grandmothers had.</p>
+                <div style="display:flex;gap:14px;margin-top:10px;">
+                  <div><div style="font-family:Impact,sans-serif;font-size:20px;color:#C4722A;">12</div><div style="font-size:7px;letter-spacing:1px;color:#2C4A38;opacity:0.6;text-transform:uppercase;">pasta shapes</div></div>
+                  <div><div style="font-family:Impact,sans-serif;font-size:20px;color:#C4722A;">82</div><div style="font-size:7px;letter-spacing:1px;color:#2C4A38;opacity:0.6;text-transform:uppercase;">wines</div></div>
+                  <div><div style="font-family:Impact,sans-serif;font-size:20px;color:#C4722A;">1</div><div style="font-size:7px;letter-spacing:1px;color:#2C4A38;opacity:0.6;text-transform:uppercase;">location</div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- menu strip -->
+            <div style="background:#2C4A38;padding:16px 20px;">
+              <div style="font-family:Impact,Arial Black,sans-serif;font-size:16px;color:#C4722A;text-transform:uppercase;margin-bottom:10px;">The Menu</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+                <div style="border:1px solid rgba(196,114,42,0.2);padding:8px 10px;">
+                  <div style="display:flex;justify-content:space-between;"><span style="font-family:Impact,sans-serif;font-size:9px;color:#C4722A;text-transform:uppercase;">Cacio e Pepe</span><span style="font-size:9px;color:rgba(245,239,224,0.5);">$21</span></div>
+                  <div style="font-family:Georgia,serif;font-size:7px;color:rgba(245,239,224,0.4);font-style:italic;margin-top:3px;">Tonnarelli, aged pecorino romano, tellicherry black pepper.</div>
+                </div>
+                <div style="border:1px solid rgba(196,114,42,0.2);padding:8px 10px;">
+                  <div style="display:flex;justify-content:space-between;"><span style="font-family:Impact,sans-serif;font-size:9px;color:#C4722A;text-transform:uppercase;">Carbonara</span><span style="font-size:9px;color:rgba(245,239,224,0.5);">$26</span></div>
+                  <div style="font-family:Georgia,serif;font-size:7px;color:rgba(245,239,224,0.4);font-style:italic;margin-top:3px;">Spaghetti, guanciale, egg yolk, pecorino. No cream. Ever.</div>
+                </div>
+                <div style="border:1px solid rgba(196,114,42,0.2);padding:8px 10px;">
+                  <div style="display:flex;justify-content:space-between;"><span style="font-family:Impact,sans-serif;font-size:9px;color:#C4722A;text-transform:uppercase;">Amatriciana</span><span style="font-size:9px;color:rgba(245,239,224,0.5);">$23</span></div>
+                  <div style="font-family:Georgia,serif;font-size:7px;color:rgba(245,239,224,0.4);font-style:italic;margin-top:3px;">Rigatoni, guanciale, San Marzano tomato, Calabrian chili.</div>
+                </div>
+                <div style="border:1px solid rgba(196,114,42,0.2);padding:8px 10px;">
+                  <div style="display:flex;justify-content:space-between;"><span style="font-family:Impact,sans-serif;font-size:9px;color:#C4722A;text-transform:uppercase;">Tajarin al Tartufo</span><span style="font-size:9px;color:rgba(245,239,224,0.5);">$24</span></div>
+                  <div style="font-family:Georgia,serif;font-size:7px;color:rgba(245,239,224,0.4);font-style:italic;margin-top:3px;">40-yolk egg pasta, brown butter, black truffle.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- footer strip -->
+            <div style="background:#1a2e22;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-family:Georgia,serif;font-size:9px;font-style:italic;color:#C4722A;">Spaghetti di Mezzanotte</span>
+              <div style="display:flex;gap:12px;">
+                <span style="font-size:7px;letter-spacing:2px;color:rgba(245,239,224,0.25);text-transform:uppercase;">Hours</span>
+                <span style="font-size:7px;letter-spacing:2px;color:rgba(245,239,224,0.25);text-transform:uppercase;">Location</span>
+                <span style="font-size:7px;letter-spacing:2px;color:rgba(245,239,224,0.25);text-transform:uppercase;">Reservations</span>
+              </div>
+            </div>
+
+            <!-- hover overlay -->
+            <div class="sdm-overlay" style="position:absolute;inset:0;background:rgba(27,58,45,0.55);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;">
+              <span style="font-family:Georgia,serif;font-size:16px;font-style:italic;color:#F5EFE0;border:1px solid rgba(245,239,224,0.5);padding:12px 28px;border-radius:100px;">View Case Study →</span>
             </div>
           </div>
         </div>
         <div class="work-info">
-          <h3>Maison Collective — E-Commerce Rebrand</h3>
-          <p>Webflow · Brand Identity · UX Design · 2025</p>
+          <h3>Spaghetti di Mezzanotte — Restaurant Brand & Web</h3>
+          <p>Brand Identity · Web Design · Typography · 2024</p>
+        </div>
+      </div>
+
+      <!-- URBAN JUNGLE CARD -->
+      <div class="work-card uj-card" onclick="window.open('#','_blank')">
+        <div class="work-thumb" style="height:320px; background:#d8e8e4; display:block; overflow:hidden; position:relative;">
+
+          <!-- mini site preview -->
+          <div style="position:absolute;inset:0;">
+
+            <!-- nav -->
+            <div style="background:#fff;padding:7px 14px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e0ece9;">
+              <span style="font-size:10px;font-weight:700;letter-spacing:1px;color:#3a7a6a;text-transform:uppercase;">Urban Jungle</span>
+              <div style="display:flex;gap:12px;">
+                <span style="font-size:7px;letter-spacing:1px;color:#7aab9e;text-transform:uppercase;">Shop</span>
+                <span style="font-size:7px;letter-spacing:1px;color:#7aab9e;text-transform:uppercase;">Locations</span>
+                <span style="font-size:7px;letter-spacing:1px;color:#7aab9e;text-transform:uppercase;">Blog</span>
+                <span style="font-size:7px;letter-spacing:1px;color:#7aab9e;text-transform:uppercase;">Contact</span>
+              </div>
+            </div>
+
+            <!-- hero -->
+            <div style="background:#d8e8e4;padding:16px 14px 12px;display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:center;">
+              <div>
+                <div style="font-size:22px;font-weight:300;color:#4a7a6a;line-height:1.1;letter-spacing:-0.5px;">Grow <span style="color:#c17d5a;font-style:italic;font-weight:400;">Your Love</span><br>For Plants</div>
+                <p style="font-size:7px;color:#6a9a8e;line-height:1.5;margin:6px 0;">Whether you're a seasoned botanist or budding enthusiast, we offer a diverse selection of vibrant plants.</p>
+                <span style="display:inline-block;background:#3a7a6a;color:#fff;font-size:7px;letter-spacing:1px;padding:4px 10px;border-radius:100px;margin-top:4px;">Shop Our Plants</span>
+              </div>
+              <!-- plant illustration placeholder -->
+              <div style="background:#b8d4cc;border-radius:6px;height:80px;display:flex;align-items:center;justify-content:center;">
+                <span style="font-size:28px;">🌿</span>
+              </div>
+            </div>
+
+            <!-- what sets us apart -->
+            <div style="background:#fff;padding:10px 14px;display:grid;grid-template-columns:80px 1fr;gap:10px;align-items:center;">
+              <div style="background:#c8dbd6;border-radius:50%;width:56px;height:56px;display:flex;align-items:center;justify-content:center;font-size:20px;">🌱</div>
+              <div>
+                <div style="font-size:8px;font-weight:700;color:#3a7a6a;letter-spacing:1px;text-transform:uppercase;margin-bottom:3px;">What Sets Us Apart?</div>
+                <p style="font-size:7px;color:#7a9a8e;line-height:1.5;">Custom organic soil blend that nurtures and supports the health of your plants.</p>
+              </div>
+            </div>
+
+            <!-- trending plants -->
+            <div style="background:#f7f3ee;padding:10px 14px;">
+              <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:#3a7a6a;text-transform:uppercase;text-align:center;margin-bottom:8px;">Trending Plants</div>
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;">
+                <div style="background:#fff;border-radius:6px;overflow:hidden;">
+                  <div style="background:#c8b89a;height:36px;display:flex;align-items:center;justify-content:center;font-size:16px;position:relative;">
+                    🌿
+                    <span style="position:absolute;top:3px;left:3px;background:#3a7a6a;color:#fff;font-size:6px;padding:1px 4px;letter-spacing:1px;">TRENDING</span>
+                  </div>
+                  <div style="padding:5px;text-align:center;">
+                    <div style="font-size:7px;font-weight:600;color:#3a5a4a;">Swiss Cheese Plant</div>
+                    <div style="font-size:6px;color:#9abaae;">Monstera Deliciosa</div>
+                    <div style="font-size:7px;color:#c17d5a;font-weight:600;">$14.99</div>
+                  </div>
+                </div>
+                <div style="background:#fff;border-radius:6px;overflow:hidden;">
+                  <div style="background:#b8c89a;height:36px;display:flex;align-items:center;justify-content:center;font-size:16px;position:relative;">
+                    🌵
+                    <span style="position:absolute;top:3px;left:3px;background:#3a7a6a;color:#fff;font-size:6px;padding:1px 4px;letter-spacing:1px;">TRENDING</span>
+                  </div>
+                  <div style="padding:5px;text-align:center;">
+                    <div style="font-size:7px;font-weight:600;color:#3a5a4a;">Snake Plant</div>
+                    <div style="font-size:6px;color:#9abaae;">Dracaena trifasciata</div>
+                    <div style="font-size:7px;color:#c17d5a;font-weight:600;">$12.99</div>
+                  </div>
+                </div>
+                <div style="background:#fff;border-radius:6px;overflow:hidden;">
+                  <div style="background:#a8c4a0;height:36px;display:flex;align-items:center;justify-content:center;font-size:16px;position:relative;">
+                    🪴
+                    <span style="position:absolute;top:3px;left:3px;background:#3a7a6a;color:#fff;font-size:6px;padding:1px 4px;letter-spacing:1px;">TRENDING</span>
+                  </div>
+                  <div style="padding:5px;text-align:center;">
+                    <div style="font-size:7px;font-weight:600;color:#3a5a4a;">Green Velvet</div>
+                    <div style="font-size:6px;color:#9abaae;">Alocasia 'Frydek'</div>
+                    <div style="font-size:7px;color:#c17d5a;font-weight:600;">$16.99</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- footer -->
+            <div style="background:#2e5a4e;padding:8px 14px;display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:9px;font-weight:700;color:#a8d4c4;letter-spacing:1px;text-transform:uppercase;">Urban Jungle</span>
+              <span style="font-size:7px;color:rgba(168,212,196,0.5);letter-spacing:1px;">716 Loxli St · Indianapolis, IN</span>
+            </div>
+
+            <!-- hover overlay -->
+            <div class="uj-overlay" style="position:absolute;inset:0;background:rgba(46,90,78,0.6);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;">
+              <span style="font-family:Georgia,serif;font-size:16px;font-style:italic;color:#fff;border:1px solid rgba(255,255,255,0.5);padding:12px 28px;border-radius:100px;">View Case Study →</span>
+            </div>
+          </div>
+        </div>
+        <div class="work-info">
+          <h3>Urban Jungle — Plant Shop Website</h3>
+          <p>Web Design · E-Commerce · Brand Identity · 2025</p>
         </div>
       </div>
       <div class="work-card">
-        <div class="work-thumb">
+        <div class="work-thumb" style="background: linear-gradient(135deg, #c17d5a, #8a4a2e);">
           <div class="work-mock">
-            <div class="work-mock-bar w80" style="background:rgba(138,43,14,0.25)"></div>
-            <div class="work-mock-bar w45" style="background:rgba(138,43,14,0.2)"></div>
-            <div class="work-mock-bar w60" style="background:rgba(138,43,14,0.15)"></div>
+            <div class="work-mock-bar w80" style="background:rgba(255,255,255,0.25)"></div>
+            <div class="work-mock-bar w45" style="background:rgba(255,255,255,0.2)"></div>
+            <div class="work-mock-bar w60" style="background:rgba(255,255,255,0.15)"></div>
           </div>
         </div>
         <div class="work-info">
           <h3>Bloom SaaS — Marketing Site</h3>
           <p>Figma · Webflow · Copywriting · 2024</p>
-        </div>
-      </div>
-      <div class="work-card">
-        <div class="work-thumb">
-          <div class="work-mock">
-            <div class="work-mock-bar w60" style="background:rgba(138,43,14,0.3)"></div>
-            <div class="work-mock-bar w80" style="background:rgba(138,43,14,0.2)"></div>
-            <div class="work-mock-bar w45" style="background:rgba(138,43,14,0.15)"></div>
-          </div>
-        </div>
-        <div class="work-info">
-          <h3>Forêt — Restaurant & Events</h3>
-          <p>Brand Identity · Web Design · 2024</p>
         </div>
       </div>
     </div>
@@ -851,17 +1037,32 @@
 
   <!-- FOOTER -->
   <footer>
-    <a href="#" class="footer-logo">Lumi Design.</a>
-    <ul class="footer-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div class="footer-branding">
+      <img src="../Assets/Logo-Main.svg" alt="Lumi Design Logo" class="footer-logo">
+      <a href="mailto:hello@lumidesign.studio" class="footer-links a" style="font-size: .85rem; color: rgba(255, 211, 172, 0.5); text-decoration: none; transition: color .2s;">hello@lumidesign.studio</a>
+    </div>
+    
+    <div class="footer-social">
+      <a href="https://www.instagram.com/lumi_designco/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="../Assets/insta.svg" alt="Instagram"></a>
+      <a href="https://www.facebook.com/profile.php?id=61578614456375" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="../Assets/facebook.svg" alt="Facebook"></a>
+      <a href="https://www.linkedin.com/in/savroe/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="../Assets/linked.svg" alt="LinkedIn"></a>
+    </div>
     <p class="footer-copy">© 2026 Lumi Design. All rights reserved.</p>
   </footer>
 
   <script>
+    // SDM card hover overlay
+    const sdmCard = document.querySelector('.work-card');
+    const sdmOverlay = sdmCard.querySelector('.sdm-overlay');
+    sdmCard.addEventListener('mouseenter', () => sdmOverlay.style.opacity = '1');
+    sdmCard.addEventListener('mouseleave', () => sdmOverlay.style.opacity = '0');
+
+    // Urban Jungle card hover overlay
+    const ujCard = document.querySelector('.uj-card');
+    const ujOverlay = ujCard.querySelector('.uj-overlay');
+    ujCard.addEventListener('mouseenter', () => ujOverlay.style.opacity = '1');
+    ujCard.addEventListener('mouseleave', () => ujOverlay.style.opacity = '0');
+
     // Smooth reveal on scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
