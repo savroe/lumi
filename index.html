@@ -289,23 +289,29 @@
     }
 
     /* ── WORK ── */
-    #work { background: #2a2018; }
-    #work .section-label { color: var(--peach); opacity: .6; }
-    #work .section-title { color: var(--peach); }
-    #work .section-sub { color: rgba(255, 211, 172, 0.55); }
+    #work {
+      background: #FFD3AC; 
+    }
+
+    #work .section-label { color: #7F321A;); opacity: .6; }
+    #work .section-title { color: #7F321A; }
+    #work .section-sub { color: 7F321A; }
 
     .work-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
     }
     .work-card {
+      display: block;
       border-radius: 20px;
       overflow: hidden;
       position: relative;
       cursor: pointer;
+      text-decoration: none;
+      color: inherit;
     }
-    .work-card:first-child { grid-column: 1 / -1; }
+    .work-card:first-child { grid-column: auto; }
     .work-thumb {
       height: 320px;
       display: flex;
@@ -314,8 +320,18 @@
       position: relative;
       overflow: hidden;
       transition: transform .4s;
+      background: #2C4A38;
     }
-    .work-card:first-child .work-thumb { height: 420px; }
+    .work-thumb img {
+      display: block;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .work-card:first-child .work-thumb { height: 320px; }
     .work-card:hover .work-thumb { transform: scale(1.02); }
     .work-card:nth-child(1) .work-thumb { background: linear-gradient(135deg, var(--terracotta), var(--brown)); }
     .work-card:nth-child(2) .work-thumb { background: linear-gradient(135deg, #c6b8d4, var(--lavender)); }
@@ -347,18 +363,18 @@
     }
     .work-info {
       padding: 1.25rem 1.5rem;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: #FCEDDF4D;
+      border: 1px solid #501e0f1a;);
       border-top: none;
       border-radius: 0 0 20px 20px;
     }
     .work-info h3 {
       font-family: var(--serif);
       font-size: 1.2rem;
-      color: var(--peach);
+      color: #7F321A;
       margin-bottom: .3rem;
     }
-    .work-info p { font-size: .82rem; color: rgba(255, 211, 172, 0.45); }
+    .work-info p { font-size: .82rem; color: #7F321A; }
 
     /* ── PROCESS ── */
     .process-steps {
@@ -395,10 +411,7 @@
     /* ── ABOUT ── */
     #about {
       background: linear-gradient(135deg, var(--peach) 0%, #f5c8a0 100%);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
+      display: block;
     }
     #about .section-label { color: var(--brown); opacity: .6; }
     #about .section-title { color: var(--brown); }
@@ -446,38 +459,121 @@
     }
     .stat-label { font-size: .8rem; color: #7a5040; margin-top: .25rem; }
 
-    /* ── TESTIMONIALS ── */
-    #testimonials { background: var(--lavender); }
-    #testimonials .section-label { color: rgba(255,255,255,0.6); }
-    #testimonials .section-title { color: #fff; }
-    .testimonials-grid {
+    /* ── PRICING ── */
+    #pricing { background: var(--lavender); }
+    #pricing .section-label { color: rgba(255,255,255,0.6); }
+    #pricing .section-title { color: #fff; }
+    #pricing .section-sub { color: rgba(255,255,255,0.75); }
+    .pricing-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
+      align-items: start;
     }
-    .testimonial-card {
+    .pricing-card {
       background: rgba(255,255,255,0.12);
       border: 1px solid rgba(255,255,255,0.2);
       border-radius: 20px;
-      padding: 2rem;
+      padding: 2.25rem 2rem;
       backdrop-filter: blur(8px);
+      display: flex;
+      flex-direction: column;
     }
-    .testimonial-stars { color: var(--peach); font-size: 1rem; margin-bottom: 1rem; letter-spacing: .1em; }
-    .testimonial-text {
-      font-size: .95rem;
-      line-height: 1.75;
-      color: rgba(255,255,255,0.9);
-      margin-bottom: 1.5rem;
-      font-style: italic;
+    .pricing-card.featured {
+      background: #fff;
+      border: 1px solid rgba(255,255,255,0.4);
+      transform: translateY(-12px);
+      box-shadow: 0 24px 60px rgba(43, 30, 53, 0.25);
     }
-    .testimonial-author { display: flex; align-items: center; gap: .75rem; }
-    .author-avatar {
-      width: 40px; height: 40px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 500; font-size: .85rem; color: var(--brown);
+    .pricing-badge {
+      align-self: flex-start;
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      background: var(--terracotta);
+      color: #fff;
+      padding: .3rem .7rem;
+      border-radius: 100px;
+      margin-bottom: 1rem;
     }
-    .author-name { font-weight: 500; font-size: .9rem; color: #fff; }
-    .author-role { font-size: .78rem; color: rgba(255,255,255,0.5); }
+    .pricing-name {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      color: #fff;
+      margin-bottom: .35rem;
+    }
+    .pricing-card.featured .pricing-name { color: var(--brown); }
+    .pricing-tagline {
+      font-size: .85rem;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 1.25rem;
+    }
+    .pricing-card.featured .pricing-tagline { color: #7a5040; }
+    .pricing-price {
+      font-family: var(--serif);
+      font-size: 2.5rem;
+      color: var(--peach);
+      margin-bottom: .25rem;
+    }
+    .pricing-card.featured .pricing-price { color: var(--terracotta); }
+    .pricing-timeline {
+      font-size: .78rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 1.75rem;
+    }
+    .pricing-card.featured .pricing-timeline { color: #9a6a52; }
+    .pricing-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .85rem;
+      margin-bottom: 2rem;
+      flex-grow: 1;
+    }
+    .pricing-features li {
+      font-size: .88rem;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.85);
+      padding-left: 1.4rem;
+      position: relative;
+    }
+    .pricing-card.featured .pricing-features li { color: #5a3a2e; }
+    .pricing-features li::before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      color: var(--peach);
+      font-size: .75rem;
+      top: .15rem;
+    }
+    .pricing-card.featured .pricing-features li::before { color: var(--terracotta); }
+    .pricing-cta {
+      display: inline-block;
+      text-align: center;
+      padding: .85rem 1.5rem;
+      border-radius: 100px;
+      font-size: .85rem;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.4);
+      color: #fff;
+      transition: background .2s, color .2s;
+    }
+    .pricing-cta:hover { background: rgba(255,255,255,0.15); }
+    .pricing-card.featured .pricing-cta {
+      background: var(--terracotta);
+      border: 1px solid var(--terracotta);
+      color: #fff;
+    }
+    .pricing-card.featured .pricing-cta:hover { background: var(--brown); border-color: var(--brown); }
+    .pricing-addon {
+      margin-top: 2.5rem;
+      text-align: center;
+      font-size: .9rem;
+      color: rgba(255,255,255,0.75);
+    }
+    .pricing-addon strong { color: #fff; }
 
     /* ── CONTACT ── */
     #contact {
@@ -485,14 +581,14 @@
       text-align: center;
     }
     #contact .section-label { color: var(--peach); opacity: .6; }
-    #contact .section-title { color: var(--peach); max-width: 14ch; margin: 0 auto 1rem; }
+    #contact .section-title { color: var(--peach); max-width: 16ch; margin: 0 auto 1rem; }
     #contact .section-sub { color: rgba(255, 211, 172, 0.65); margin: 0 auto 3rem; text-align: center; }
     .contact-form {
       max-width: 580px;
       margin: 0 auto;
       text-align: left;
     }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1rem; }
     .form-group { display: flex; flex-direction: column; gap: .4rem; margin-bottom: 1rem; }
     .form-group label { font-size: .8rem; font-weight: 500; color: var(--peach); opacity: .7; letter-spacing: .05em; text-transform: uppercase; }
     .form-group input,
@@ -532,7 +628,7 @@
 
     /* ── FOOTER ── */
     footer {
-      background: var(--ink);
+      background:rgba(253, 246, 238, 0.88);
       padding: 3rem 5vw;
       display: flex;
       align-items: center;
@@ -553,25 +649,25 @@
       gap: 0.5rem;
     }
     .footer-links { display: flex; gap: 2rem; list-style: none; }
-    .footer-links a { font-size: .85rem; color: rgba(255, 211, 172, 0.5); text-decoration: none; transition: color .2s; }
-    .footer-links a:hover { color: var(--peach); }
+    .footer-links a { font-size: .85rem; color:#D25D41; text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: #D25D41; }
     .footer-social { display: flex; gap: 1.5rem; }
-    .footer-social a { font-size: 1.2rem; color: rgba(255, 211, 172, 0.6); text-decoration: none; transition: color .2s; }
+    .footer-social a { font-size: 1.2rem; color: #D25D41; text-decoration: none; transition: color .2s; }
     .footer-social a:hover { color: var(--peach); }
-    .footer-copy { font-size: .8rem; color: rgba(255, 211, 172, 0.5); }
+    .footer-copy { font-size: .8rem; color: #D25D41; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; padding-top: 7rem; }
       .hero-visual { display: none; }
       .services-grid { grid-template-columns: 1fr; }
-      .work-grid { grid-template-columns: 1fr; }
-      .work-card:first-child { grid-column: auto; }
+      .work-grid { grid-template-columns: repeat(2, 1fr); }
+      .work-card:first-child { grid-column: 1 / -1; }
       .process-steps { grid-template-columns: 1fr 1fr; }
       #about { grid-template-columns: 1fr; }
       .about-visual { height: 300px; }
-      .testimonials-grid { grid-template-columns: 1fr; }
-      .form-row { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .pricing-card.featured { transform: none; }
       footer { flex-direction: column; text-align: center; }
       .footer-links { flex-wrap: wrap; justify-content: center; }
     }
@@ -587,7 +683,7 @@
   <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo">
-      <img src="../images/Logo-Main.svg" alt="Lumi Design logo">
+      <img src="../Assets/Logo-Main.svg" alt="Lumi Design logo">
     </a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
@@ -609,7 +705,7 @@
       </div>
     </div>
     <div class="hero-visual">
-      <img src="../images/Hero.png" alt="Lumi Design hero image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+      <img src="../Assets/Hero.png" alt="Lumi Design hero image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
     </div>
   </section>
 
@@ -674,248 +770,68 @@ No confusing packages. No handing you off to someone else. Just a website that w
     <p class="section-sub">A curated look at recent projects spanning e-commerce, SaaS, and lifestyle brands.</p>
     <div class="work-grid">
 
-      <!-- SDM CARD — full width featured -->
-      <div class="work-card" style="grid-column: 1 / -1;" onclick="window.open('#','_blank')">
-        <div class="work-thumb" style="height:480px; background:#2C4A38; display:block; overflow:hidden; position:relative;">
-
-          <!-- mini site preview -->
-          <div style="position:absolute;inset:0;transform:scale(1);transition:transform .5s ease;">
-
-            <!-- nav bar -->
-            <div style="background:#1a2e22;padding:8px 20px;display:flex;justify-content:space-between;align-items:center;">
-              <span style="font-family:Georgia,serif;font-size:11px;font-style:italic;color:#C4722A;">Spaghetti di Mezzanotte</span>
-              <div style="display:flex;gap:14px;">
-                <span style="font-size:8px;letter-spacing:2px;color:rgba(245,239,224,0.4);text-transform:uppercase;">Menu</span>
-                <span style="font-size:8px;letter-spacing:2px;color:rgba(245,239,224,0.4);text-transform:uppercase;">About</span>
-                <span style="font-size:8px;letter-spacing:2px;color:rgba(245,239,224,0.4);text-transform:uppercase;">Location</span>
-                <span style="background:#C4722A;color:#F5EFE0;font-size:8px;letter-spacing:1px;padding:3px 8px;text-transform:uppercase;">Reserve</span>
-              </div>
-            </div>
-
-            <!-- hero -->
-            <div style="background:#2C4A38;padding:28px 20px 22px;display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center;">
-              <div>
-                <div style="font-family:Impact,Arial Black,sans-serif;font-size:52px;color:#C4722A;line-height:0.9;text-transform:uppercase;">SPAGH<br>ETTI</div>
-                <div style="margin:6px 0;"><span style="background:#C4722A;color:#F5EFE0;font-family:Impact,sans-serif;font-size:10px;padding:2px 10px;border-radius:10px;letter-spacing:3px;">de</span></div>
-                <div style="font-family:Impact,Arial Black,sans-serif;font-size:52px;color:#C4722A;line-height:0.9;text-transform:uppercase;">MEZZA<br>NOTTE</div>
-                <div style="margin-top:10px;font-size:8px;letter-spacing:3px;color:rgba(245,239,224,0.4);text-transform:uppercase;">Venice Beach · Dinner Only</div>
-              </div>
-              <div style="display:flex;flex-direction:column;gap:10px;">
-                <p style="font-family:Georgia,serif;font-size:11px;line-height:1.6;color:rgba(245,239,224,0.75);font-style:italic;">"A late-night trattoria for the unhurried. We cook one thing, and we cook it right."</p>
-                <div style="display:flex;gap:8px;">
-                  <span style="background:#C4722A;color:#F5EFE0;font-size:8px;letter-spacing:2px;padding:6px 12px;text-transform:uppercase;">Reserve</span>
-                  <span style="border:1px solid rgba(196,114,42,0.5);color:#C4722A;font-size:8px;letter-spacing:2px;padding:6px 12px;text-transform:uppercase;">Menu</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- ticker -->
-            <div style="background:#C4722A;padding:6px 0;font-family:Impact,sans-serif;font-size:9px;letter-spacing:3px;color:#F5EFE0;text-align:center;text-transform:uppercase;">
-              Handmade in California &nbsp;·&nbsp; Open til Midnight &nbsp;·&nbsp; Slow Food Fast Vibes &nbsp;·&nbsp; Est. 2024
-            </div>
-
-            <!-- about strip -->
-            <div style="background:#F5EFE0;padding:18px 20px;display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center;">
-              <div>
-                <div style="font-size:8px;letter-spacing:3px;text-transform:uppercase;color:#C4722A;margin-bottom:6px;">Our Story</div>
-                <div style="font-family:Impact,Arial Black,sans-serif;font-size:24px;color:#2C4A38;text-transform:uppercase;line-height:1;">BORN AT<br>MIDNIGHT</div>
-              </div>
-              <div>
-                <p style="font-family:Georgia,serif;font-size:9px;line-height:1.6;color:#5a4030;font-style:italic;">Every shape of pasta is made by hand each morning. Every sauce begins with the same patience our grandmothers had.</p>
-                <div style="display:flex;gap:14px;margin-top:10px;">
-                  <div><div style="font-family:Impact,sans-serif;font-size:20px;color:#C4722A;">12</div><div style="font-size:7px;letter-spacing:1px;color:#2C4A38;opacity:0.6;text-transform:uppercase;">pasta shapes</div></div>
-                  <div><div style="font-family:Impact,sans-serif;font-size:20px;color:#C4722A;">82</div><div style="font-size:7px;letter-spacing:1px;color:#2C4A38;opacity:0.6;text-transform:uppercase;">wines</div></div>
-                  <div><div style="font-family:Impact,sans-serif;font-size:20px;color:#C4722A;">1</div><div style="font-size:7px;letter-spacing:1px;color:#2C4A38;opacity:0.6;text-transform:uppercase;">location</div></div>
-                </div>
-              </div>
-            </div>
-
-            <!-- menu strip -->
-            <div style="background:#2C4A38;padding:16px 20px;">
-              <div style="font-family:Impact,Arial Black,sans-serif;font-size:16px;color:#C4722A;text-transform:uppercase;margin-bottom:10px;">The Menu</div>
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
-                <div style="border:1px solid rgba(196,114,42,0.2);padding:8px 10px;">
-                  <div style="display:flex;justify-content:space-between;"><span style="font-family:Impact,sans-serif;font-size:9px;color:#C4722A;text-transform:uppercase;">Cacio e Pepe</span><span style="font-size:9px;color:rgba(245,239,224,0.5);">$21</span></div>
-                  <div style="font-family:Georgia,serif;font-size:7px;color:rgba(245,239,224,0.4);font-style:italic;margin-top:3px;">Tonnarelli, aged pecorino romano, tellicherry black pepper.</div>
-                </div>
-                <div style="border:1px solid rgba(196,114,42,0.2);padding:8px 10px;">
-                  <div style="display:flex;justify-content:space-between;"><span style="font-family:Impact,sans-serif;font-size:9px;color:#C4722A;text-transform:uppercase;">Carbonara</span><span style="font-size:9px;color:rgba(245,239,224,0.5);">$26</span></div>
-                  <div style="font-family:Georgia,serif;font-size:7px;color:rgba(245,239,224,0.4);font-style:italic;margin-top:3px;">Spaghetti, guanciale, egg yolk, pecorino. No cream. Ever.</div>
-                </div>
-                <div style="border:1px solid rgba(196,114,42,0.2);padding:8px 10px;">
-                  <div style="display:flex;justify-content:space-between;"><span style="font-family:Impact,sans-serif;font-size:9px;color:#C4722A;text-transform:uppercase;">Amatriciana</span><span style="font-size:9px;color:rgba(245,239,224,0.5);">$23</span></div>
-                  <div style="font-family:Georgia,serif;font-size:7px;color:rgba(245,239,224,0.4);font-style:italic;margin-top:3px;">Rigatoni, guanciale, San Marzano tomato, Calabrian chili.</div>
-                </div>
-                <div style="border:1px solid rgba(196,114,42,0.2);padding:8px 10px;">
-                  <div style="display:flex;justify-content:space-between;"><span style="font-family:Impact,sans-serif;font-size:9px;color:#C4722A;text-transform:uppercase;">Tajarin al Tartufo</span><span style="font-size:9px;color:rgba(245,239,224,0.5);">$24</span></div>
-                  <div style="font-family:Georgia,serif;font-size:7px;color:rgba(245,239,224,0.4);font-style:italic;margin-top:3px;">40-yolk egg pasta, brown butter, black truffle.</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- footer strip -->
-            <div style="background:#1a2e22;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;">
-              <span style="font-family:Georgia,serif;font-size:9px;font-style:italic;color:#C4722A;">Spaghetti di Mezzanotte</span>
-              <div style="display:flex;gap:12px;">
-                <span style="font-size:7px;letter-spacing:2px;color:rgba(245,239,224,0.25);text-transform:uppercase;">Hours</span>
-                <span style="font-size:7px;letter-spacing:2px;color:rgba(245,239,224,0.25);text-transform:uppercase;">Location</span>
-                <span style="font-size:7px;letter-spacing:2px;color:rgba(245,239,224,0.25);text-transform:uppercase;">Reservations</span>
-              </div>
-            </div>
-
-            <!-- hover overlay -->
-            <div class="sdm-overlay" style="position:absolute;inset:0;background:rgba(27,58,45,0.55);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;">
-              <span style="font-family:Georgia,serif;font-size:16px;font-style:italic;color:#F5EFE0;border:1px solid rgba(245,239,224,0.5);padding:12px 28px;border-radius:100px;">View Case Study →</span>
-            </div>
-          </div>
+      <!-- SDM CARD -->
+      <a href="pasta-case-study.html" class="work-card">
+        <div class="work-thumb" style="height:320px; display:block; overflow:hidden; position:relative;">
+          <img src="../assets/pastacoverimg.png" alt="Spaghetti di Mezzanotte cover" style="width:100%; height:100%; object-fit:cover; display:block;" />
         </div>
         <div class="work-info">
-          <h3>Spaghetti di Mezzanotte — Restaurant Brand & Web</h3>
+          <h3>Spaghetti di Mezzanotte — Brand & Web</h3>
           <p>Brand Identity · Web Design · Typography · 2024</p>
         </div>
-      </div>
+      </a>
 
       <!-- URBAN JUNGLE CARD -->
-      <div class="work-card uj-card" onclick="window.open('#','_blank')">
-        <div class="work-thumb" style="height:320px; background:#d8e8e4; display:block; overflow:hidden; position:relative;">
-
-          <!-- mini site preview -->
-          <div style="position:absolute;inset:0;">
-
-            <!-- nav -->
-            <div style="background:#fff;padding:7px 14px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e0ece9;">
-              <span style="font-size:10px;font-weight:700;letter-spacing:1px;color:#3a7a6a;text-transform:uppercase;">Urban Jungle</span>
-              <div style="display:flex;gap:12px;">
-                <span style="font-size:7px;letter-spacing:1px;color:#7aab9e;text-transform:uppercase;">Shop</span>
-                <span style="font-size:7px;letter-spacing:1px;color:#7aab9e;text-transform:uppercase;">Locations</span>
-                <span style="font-size:7px;letter-spacing:1px;color:#7aab9e;text-transform:uppercase;">Blog</span>
-                <span style="font-size:7px;letter-spacing:1px;color:#7aab9e;text-transform:uppercase;">Contact</span>
-              </div>
-            </div>
-
-            <!-- hero -->
-            <div style="background:#d8e8e4;padding:16px 14px 12px;display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:center;">
-              <div>
-                <div style="font-size:22px;font-weight:300;color:#4a7a6a;line-height:1.1;letter-spacing:-0.5px;">Grow <span style="color:#c17d5a;font-style:italic;font-weight:400;">Your Love</span><br>For Plants</div>
-                <p style="font-size:7px;color:#6a9a8e;line-height:1.5;margin:6px 0;">Whether you're a seasoned botanist or budding enthusiast, we offer a diverse selection of vibrant plants.</p>
-                <span style="display:inline-block;background:#3a7a6a;color:#fff;font-size:7px;letter-spacing:1px;padding:4px 10px;border-radius:100px;margin-top:4px;">Shop Our Plants</span>
-              </div>
-              <!-- plant illustration placeholder -->
-              <div style="background:#b8d4cc;border-radius:6px;height:80px;display:flex;align-items:center;justify-content:center;">
-                <span style="font-size:28px;">🌿</span>
-              </div>
-            </div>
-
-            <!-- what sets us apart -->
-            <div style="background:#fff;padding:10px 14px;display:grid;grid-template-columns:80px 1fr;gap:10px;align-items:center;">
-              <div style="background:#c8dbd6;border-radius:50%;width:56px;height:56px;display:flex;align-items:center;justify-content:center;font-size:20px;">🌱</div>
-              <div>
-                <div style="font-size:8px;font-weight:700;color:#3a7a6a;letter-spacing:1px;text-transform:uppercase;margin-bottom:3px;">What Sets Us Apart?</div>
-                <p style="font-size:7px;color:#7a9a8e;line-height:1.5;">Custom organic soil blend that nurtures and supports the health of your plants.</p>
-              </div>
-            </div>
-
-            <!-- trending plants -->
-            <div style="background:#f7f3ee;padding:10px 14px;">
-              <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:#3a7a6a;text-transform:uppercase;text-align:center;margin-bottom:8px;">Trending Plants</div>
-              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;">
-                <div style="background:#fff;border-radius:6px;overflow:hidden;">
-                  <div style="background:#c8b89a;height:36px;display:flex;align-items:center;justify-content:center;font-size:16px;position:relative;">
-                    🌿
-                    <span style="position:absolute;top:3px;left:3px;background:#3a7a6a;color:#fff;font-size:6px;padding:1px 4px;letter-spacing:1px;">TRENDING</span>
-                  </div>
-                  <div style="padding:5px;text-align:center;">
-                    <div style="font-size:7px;font-weight:600;color:#3a5a4a;">Swiss Cheese Plant</div>
-                    <div style="font-size:6px;color:#9abaae;">Monstera Deliciosa</div>
-                    <div style="font-size:7px;color:#c17d5a;font-weight:600;">$14.99</div>
-                  </div>
-                </div>
-                <div style="background:#fff;border-radius:6px;overflow:hidden;">
-                  <div style="background:#b8c89a;height:36px;display:flex;align-items:center;justify-content:center;font-size:16px;position:relative;">
-                    🌵
-                    <span style="position:absolute;top:3px;left:3px;background:#3a7a6a;color:#fff;font-size:6px;padding:1px 4px;letter-spacing:1px;">TRENDING</span>
-                  </div>
-                  <div style="padding:5px;text-align:center;">
-                    <div style="font-size:7px;font-weight:600;color:#3a5a4a;">Snake Plant</div>
-                    <div style="font-size:6px;color:#9abaae;">Dracaena trifasciata</div>
-                    <div style="font-size:7px;color:#c17d5a;font-weight:600;">$12.99</div>
-                  </div>
-                </div>
-                <div style="background:#fff;border-radius:6px;overflow:hidden;">
-                  <div style="background:#a8c4a0;height:36px;display:flex;align-items:center;justify-content:center;font-size:16px;position:relative;">
-                    🪴
-                    <span style="position:absolute;top:3px;left:3px;background:#3a7a6a;color:#fff;font-size:6px;padding:1px 4px;letter-spacing:1px;">TRENDING</span>
-                  </div>
-                  <div style="padding:5px;text-align:center;">
-                    <div style="font-size:7px;font-weight:600;color:#3a5a4a;">Green Velvet</div>
-                    <div style="font-size:6px;color:#9abaae;">Alocasia 'Frydek'</div>
-                    <div style="font-size:7px;color:#c17d5a;font-weight:600;">$16.99</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- footer -->
-            <div style="background:#2e5a4e;padding:8px 14px;display:flex;justify-content:space-between;align-items:center;">
-              <span style="font-size:9px;font-weight:700;color:#a8d4c4;letter-spacing:1px;text-transform:uppercase;">Urban Jungle</span>
-              <span style="font-size:7px;color:rgba(168,212,196,0.5);letter-spacing:1px;">716 Loxli St · Indianapolis, IN</span>
-            </div>
-
-            <!-- hover overlay -->
-            <div class="uj-overlay" style="position:absolute;inset:0;background:rgba(46,90,78,0.6);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;">
-              <span style="font-family:Georgia,serif;font-size:16px;font-style:italic;color:#fff;border:1px solid rgba(255,255,255,0.5);padding:12px 28px;border-radius:100px;">View Case Study →</span>
-            </div>
-          </div>
+      <a href="plants-case-study.html" class="work-card uj-card">
+        <div class="work-thumb" style="height:320px; display:block; overflow:hidden; position:relative;">
+          <img src="../assets/urbanjungle.png" alt="Urban Jungle cover" style="width:100%; height:100%; object-fit:cover; display:block;" />
         </div>
         <div class="work-info">
-          <h3>Urban Jungle — Plant Shop Website</h3>
+          <h3>Urban Jungle —  Website</h3>
           <p>Web Design · E-Commerce · Brand Identity · 2025</p>
         </div>
-      </div>
-      <div class="work-card">
-        <div class="work-thumb" style="background: linear-gradient(135deg, #c17d5a, #8a4a2e);">
-          <div class="work-mock">
-            <div class="work-mock-bar w80" style="background:rgba(255,255,255,0.25)"></div>
-            <div class="work-mock-bar w45" style="background:rgba(255,255,255,0.2)"></div>
-            <div class="work-mock-bar w60" style="background:rgba(255,255,255,0.15)"></div>
-          </div>
+      </a>
+      <a href="sub-case-study.html" class="work-card">
+        <div class="work-thumb" style="height:320px; display:block; overflow:hidden; position:relative;">
+          <img src="../assets/subshop.png" alt="Hero Sub Shop cover" style="width:100%; height:100%; object-fit:cover; display:block;" />
         </div>
         <div class="work-info">
-          <h3>Bloom SaaS — Marketing Site</h3>
-          <p>Figma · Webflow · Copywriting · 2024</p>
+          <h3>Hero Sub Shop — Restaurant Website</h3>
+          <p>Brand Identity · Web Design · Typography · 2026</p>
         </div>
-      </div>
+      </a>
     </div>
   </section>
 
   <!-- PROCESS -->
   <section id="process">
     <div class="section-label">How It Works</div>
-    <h2 class="section-title">A clear process,<br>start to finish</h2>
-    <p class="section-sub">Working with me is straightforward. Here's what to expect from our first conversation to your final launch.</p>
+    <h2 class="section-title">Here's exactly what happens<br> when you hire me</h2>
+    <p class="section-sub">No jargon, no surprises. Just a simple process that takes you from "I need a website" to "oh wow, that's actually mine."</p>
     <div class="process-steps">
       <div class="process-step">
         <div class="step-num">01</div>
-        <h3>Discovery</h3>
-        <p>We kick off with a deep-dive call to understand your goals, audience, and vision. I ask the questions most designers skip.</p>
+        <h3> We Talk</h3>
+        <p>We hop on a call and you brain-dump everything! Your business, your customers, your vibe. I take notes. You don't have to know anything about websites yet.</p>
         <div class="step-line"></div>
       </div>
       <div class="process-step">
         <div class="step-num">02</div>
-        <h3>Strategy & Concept</h3>
-        <p>I map out the structure, user flows, and visual direction — so we're aligned before a single frame is designed.</p>
+        <h3>The Plan</h3>
+        <p>I figure out what your site actually needs (hint: it's probably not 12 pages). I'll show you the structure before any designing happens so we're on the same page.</p>
         <div class="step-line"></div>
       </div>
       <div class="process-step">
         <div class="step-num">03</div>
-        <h3>Design</h3>
-        <p>Full Figma designs with two rounds of revisions. Every decision is intentional and tied back to your goals.</p>
+        <h3>The Pretty Part</h3>
+        <p>This is where it starts looking like something. You'll see real designs, give feedback, and we'll go back and forth until you love it.</p>
         <div class="step-line"></div>
       </div>
       <div class="process-step">
         <div class="step-num">04</div>
-        <h3>Build & Launch</h3>
-        <p>Pixel-perfect Webflow build, QA tested across devices, and handed off with a walkthrough so you feel confident.</p>
+        <h3>Launch Day</h3>
+        <p>
+I build it, make sure it works on your phone, your mom's phone, and everything in between. Then i'll hand it over with a walkthrough so you actually know how to use it.</p>
       </div>
     </div>
   </section>
@@ -925,127 +841,166 @@ No confusing packages. No handing you off to someone else. Just a website that w
     <div>
       <div class="section-label">About Lumi</div>
       <h2 class="section-title">Design-obsessed,<br>results-driven</h2>
-      <p class="about-body">Lumi Design is a boutique web design studio with a background in visual communication and a soft spot for brands with a story to tell. We've worked with everyone from scrappy startups to established lifestyle brands.</p>
-      <p class="about-body">Our work sits at the intersection of aesthetics and strategy. A beautiful site means nothing if it doesn't convert — and a converting site shouldn't have to be ugly.</p>
+      <p class="about-body">I taught myself HTML in middle school, hand coding websites about my favorite things, and never really stopped. That curiosity turned into a bachelor's degree, then a master's in Human-Centered Computing, which is really just the study of how to design technology around real people instead of the other way around. In plain terms: how to make a website that feels obvious and easy, even though there's a lot of thinking behind the scenes.</p>
+      <p class="about-body">These days I have 8+ years of hands-on experience building sites — from clean hand-written HTML & CSS to Squarespace, Showit, and every major builder in between. I also spent a decade in the restaurant industry myself, working everything from hosting to the kitchen to management, so when I work with restaurants and hospitality brands, I'm not guessing at how the business runs, I've lived it. That's why small businesses and local shops, especially in food and hospitality, are where I do my best work.</p>
       <div class="skills-chips">
         <span class="skill-chip">Figma</span>
-        <span class="skill-chip">Webflow</span>
+        <span class="skill-chip">Adobe Creative Suite</span>
         <span class="skill-chip">Brand Design</span>
         <span class="skill-chip">Typography</span>
         <span class="skill-chip">UX Research</span>
-        <span class="skill-chip">Motion Design</span>
-        <span class="skill-chip">Copywriting</span>
-      </div>
-      <div class="about-stats">
-        <div>
-          <div class="stat-num">5+</div>
-          <div class="stat-label">Years Experience</div>
-        </div>
-        <div>
-          <div class="stat-num">40+</div>
-          <div class="stat-label">Projects Delivered</div>
-        </div>
-        <div>
-          <div class="stat-num">100%</div>
-          <div class="stat-label">Client Satisfaction</div>
-        </div>
-      </div>
-    </div>
-    <div class="about-visual">
-      <div class="about-img-bg"></div>
-      <div class="about-photo-placeholder">
-        <span class="about-initials">LD.</span>
+        <span class="skill-chip">Mockups</span>
+        <span class="skill-chip">Wireframing</span>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section id="testimonials">
-    <div class="section-label">Kind Words</div>
-    <h2 class="section-title">What clients say</h2>
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Lumi Design completely transformed our online presence. The site they built for us feels premium, is incredibly easy to navigate, and has measurably improved our conversions."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background:var(--peach)">ML</div>
-          <div>
-            <div class="author-name">Maya L.</div>
-            <div class="author-role">Founder, Maison Collective</div>
-          </div>
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-label">What I Do</div>
+    <h2 class="section-title">I build the whole thing</h2>
+    <p class="section-sub">How it looks, what it says, and how people find it.
+No confusing packages. No handing you off to someone else. Just a website that works.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">✦</div>
+        <h3>Website Design</h3>
+        <p>Your website is usually the first impression someone gets of your business, and first impressions stick. I design sites that look intentional, feel easy to navigate, and actually reflect what makes you different. Everything is built to look great on any device.</p>
+        <div class="service-tags">
+          <span>Figma</span><span>Responsive</span><span>UI/UX</span><span>Mobile</span><span>Web Design</span>
         </div>
       </div>
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Working with Lumi Design was seamless from start to finish. They understood our brand immediately and delivered something that exceeded every expectation."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background:var(--terracotta); color:#fff;">JR</div>
-          <div>
-            <div class="author-name">James R.</div>
-            <div class="author-role">CEO, Bloom</div>
-          </div>
+      <div class="service-card">
+        <div class="service-icon">◈</div>
+        <h3>Brand Identity</h3>
+        <p>Your website, your socials, your colors - they should all feel like they belong to the same business. I take what you already have and make it all feel intentional, consistent, and unmistakably you.</p>
+        <div class="service-tags">
+          <span>Colors</span><span>Style Guide</span><span>Typography</span>
         </div>
       </div>
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"The attention to detail is unreal. Every section feels thoughtfully crafted. We've had so many compliments on the site — and it's driving real business results."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background:rgba(255,255,255,0.2); color:#fff;">SN</div>
-          <div>
-            <div class="author-name">Sophie N.</div>
-            <div class="author-role">Owner, Forêt</div>
-          </div>
+      <div class="service-card">
+        <div class="service-icon">⬡</div>
+        <h3>Search Engine Optimization (SEO)</h3>
+        <p>You shouldn't have to rely on word of mouth forever. I make sure your site is set up so that when someone searches for what you do in your area, you're actually showing up. It's one of the best things you can do for your business, just customers finding you on their own.</p>
+        <div class="service-tags">
+          <span>SEO</span><span>Google Analytics</span>
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="section-label">Investment</div>
+    <h2 class="section-title">Services &amp; pricing</h2>
+    <p class="section-sub">Straightforward packages with no surprises. Every project starts with a conversation so we can find the right fit for your business.</p>
+    <div class="pricing-grid">
+
+      <div class="pricing-card">
+        <div class="pricing-name">Starter</div>
+        <div class="pricing-tagline">A quick, polished site to get you online fast</div>
+        <div class="pricing-timeline">Delivered in 1 week</div>
+        <ul class="pricing-features">
+          <li>3-page website</li>
+          <li>Built from one of my pre-made templates</li>
+          <li>Your existing brand applied — no rebranding</li>
+          <li>Platform integration (DoorDash, online ordering, booking, etc.)</li>
+          <li>One-off project, ready to launch</li>
+        </ul>
+        <a href="#contact" class="pricing-cta">Get Started</a>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Most Popular</div>
+        <div class="pricing-name">Growth</div>
+        <div class="pricing-tagline">More room to tell your story, with a custom feel</div>
+        <div class="pricing-timeline">Delivered in 2–3 weeks</div>
+        <ul class="pricing-features">
+          <li>5–7 page website</li>
+          <li>Template-based, customized layout, colors &amp; sections</li>
+          <li>Light brand polish — refined palette &amp; typography</li>
+          <li>Platform integrations included</li>
+          <li>Basic SEO setup (titles, meta descriptions, alt text)</li>
+        </ul>
+        <a href="#contact" class="pricing-cta">Get Started</a>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-name">Custom</div>
+        <div class="pricing-tagline">Fully yours, designed and built from scratch</div>
+        <div class="pricing-timeline">Delivered in 4–5 weeks</div>
+        <ul class="pricing-features">
+          <li>Fully custom design, no template</li>
+          <li>Full brand identity available (logo, colors, style guide)</li>
+          <li>Unlimited pages</li>
+          <li>Full SEO setup</li>
+          <li>Food/Product Photography available</li>
+        </ul>
+        <a href="#contact" class="pricing-cta">Get Started</a>
+      </div>
+
+    </div>
+    <p class="pricing-addon">Need ongoing support after launch? <strong>Maintenance &amp; care plans</strong> are available as an add-on for any package.</p>
   </section>
 
   <!-- CONTACT -->
   <section id="contact">
-    <div class="section-label">Get In Touch</div>
-    <h2 class="section-title">Let's build something great</h2>
-    <p class="section-sub">Lumi takes on a limited number of projects each quarter. Tell us about yours and let's see if we're a good fit.</p>
-    <form class="contact-form" onsubmit="handleSubmit(event)">
-      <div class="form-row">
-        <div class="form-group">
-          <label>Name</label>
-          <input type="text" placeholder="Your name" required />
-        </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="hello@you.com" required />
-        </div>
-      </div>
+  <div class="section-label">Get In Touch</div>
+  <h2 class="section-title">Let's build something great</h2>
+  <p class="section-sub">Lumi takes on a limited number of projects each quarter. Tell us about yours and let's see if we're a good fit.</p>
+  <form class="contact-form" action="https://formsubmit.co/hello@lumidesign.studio" method="POST">
+    <input type="hidden" name="_subject" value="New project inquiry from Lumi contact form" />
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_next" value="https://lumidesign.studio/thank-you.html" />
+    <input type="text" name="_honey" style="display:none" />
+
+    <div class="form-row">
       <div class="form-group">
-        <label>Project Type</label>
-        <select>
-          <option value="">Select a service...</option>
-          <option>Website Design</option>
-          <option>Brand Identity</option>
-          <option>Webflow Development</option>
-          <option>Full Package (Design + Build)</option>
-          <option>Something else</option>
-        </select>
+        <label>Name</label>
+        <input type="text" name="name" placeholder="Your name" required />
       </div>
+    </div>
+    <div class="form-row">
       <div class="form-group">
-        <label>Tell me about your project</label>
-        <textarea placeholder="What are you working on? Goals, timeline, budget — anything helps."></textarea>
+        <label>Email</label>
+        <input type="email" name="email" placeholder="hello@email.com" required />
       </div>
-      <button type="submit" class="form-submit">Send Message →</button>
-    </form>
-  </section>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" name="phone" placeholder="(123) 456-7890" required />
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Select a package</label>
+      <select name="package">
+        <option value="">Select one...</option>
+        <option>Starter</option>
+        <option>Growth</option>
+        <option>Custom</option>
+        <option>Something else</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Tell me about your project</label>
+      <textarea name="message" placeholder="What are you working on? Goals, timeline, budget — anything helps."></textarea>
+    </div>
+    <button type="submit" class="form-submit">Send Message →</button>
+  </form>
+</section>
 
   <!-- FOOTER -->
   <footer>
     <div class="footer-branding">
       <img src="../Assets/Logo-Main.svg" alt="Lumi Design Logo" class="footer-logo">
-      <a href="mailto:hello@lumidesign.studio" class="footer-links a" style="font-size: .85rem; color: rgba(255, 211, 172, 0.5); text-decoration: none; transition: color .2s;">hello@lumidesign.studio</a>
+      <a href="mailto:hello@lumidesign.studio" class="footer-links a" style="font-size: .85rem; color:#D25D41; text-decoration: none; transition: color .2s;">hello@lumidesign.studio</a>
     </div>
     
     <div class="footer-social">
-      <a href="https://www.instagram.com/lumi_designco/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="../images/insta.svg" alt="Instagram"></a>
-      <a href="https://www.facebook.com/profile.php?id=61578614456375" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="../images/facebook.svg" alt="Facebook"></a>
-      <a href="https://www.linkedin.com/in/savroe/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="../images/linked.svg" alt="LinkedIn"></a>
+      <a href="https://www.instagram.com/lumi_designco/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="../Assets/insta.svg" alt="Instagram"></a>
+      <a href="https://www.facebook.com/profile.php?id=61578614456375" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="../Assets/facebook.svg" alt="Facebook"></a>
+      <a href="https://www.linkedin.com/in/savroe/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="../Assets/linked.svg" alt="LinkedIn"></a>
     </div>
     <p class="footer-copy">© 2026 Lumi Design. All rights reserved.</p>
   </footer>
@@ -1080,14 +1035,7 @@ No confusing packages. No handing you off to someone else. Just a website that w
       observer.observe(el);
     });
 
-    // Contact form
-    function handleSubmit(e) {
-      e.preventDefault();
-      const btn = e.target.querySelector('.form-submit');
-      btn.textContent = '✓ Message sent! I\'ll be in touch soon.';
-      btn.style.background = '#2a7a4e';
-      btn.disabled = true;
-    }
+    // Contact form is now handled by FormSubmit service
   </script>
 
 </body>
