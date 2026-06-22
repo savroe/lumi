@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Project — Lumi Design Studio ✦</title>
+  <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/savroe/lumi/main/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --terracotta: #E35336;
+      --peach:      #FFD3AC;
+      --lavender:   #9988A1;
+      --brown:      #8A2B0E;
+      --cream:      #FDF6EE;
+      --ink:        #1E1412;
+      --serif:      'DM Serif Display', serif;
+      --sans:       'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 5vw;
+      background: rgba(253, 246, 238, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(227, 83, 54, 0.12);
+    }
+    .nav-logo { display: inline-flex; align-items: center; }
+    .nav-logo img { display: block; max-height: 48px; width: auto; }
+    .back-link {
+      display: inline-flex; align-items: center; gap: .4rem;
+      text-decoration: none;
+      font-size: .875rem;
+      font-weight: 500;
+      color: var(--ink);
+      transition: color .2s;
+    }
+    .back-link:hover { color: var(--terracotta); }
+    .nav-cta {
+      background: var(--terracotta);
+      color: #fff !important;
+      padding: .5rem 1.25rem;
+      border-radius: 100px;
+      text-decoration: none;
+      font-size: .875rem;
+      font-weight: 500;
+      transition: background .2s;
+    }
+    .nav-cta:hover { background: var(--brown); }
+
+    /* ── HERO ── */
+    .case-hero {
+      padding: 11rem 5vw 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .case-eyebrow {
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 1rem;
+    }
+    .case-title {
+      font-family: var(--serif);
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      color: var(--brown);
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+    .case-desc {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: #5a3a2e;
+      max-width: 60ch;
+      margin-bottom: 1.75rem;
+    }
+    .case-tags { display: flex; flex-wrap: wrap; gap: .6rem; }
+    .case-tags span {
+      font-size: .78rem;
+      font-weight: 500;
+      padding: .4rem 1rem;
+      border-radius: 100px;
+      background: #fff;
+      color: var(--brown);
+      border: 1px solid rgba(138, 43, 14, 0.15);
+    }
+
+    /* ── HERO VISUAL ── */
+    .case-visual {
+      margin: 0 5vw 5rem;
+      height: 460px;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
+    /* ── GALLERY ── */
+    .case-gallery {
+      padding: 0 5vw 6rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .gallery-item {
+      border-radius: 18px;
+      height: 320px;
+    }
+
+    /* ── FOOTER NAV ── */
+    .case-footer {
+      padding: 4rem 5vw 5rem;
+      text-align: center;
+      border-top: 1px solid rgba(138, 43, 14, 0.1);
+      margin: 0 5vw;
+    }
+    .case-footer p {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      color: var(--brown);
+      margin-bottom: 1.5rem;
+    }
+    .case-footer .nav-cta { padding: .85rem 2rem; font-size: .9rem; }
+
+    /* ── MOCKUP ── */
+    .case-mockup {
+      padding: 6rem 5vw;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .mockup-title {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      color: var(--brown);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .mockup-image {
+      width: 100%;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+    .mockup-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 700px) {
+      .case-hero { padding: 8rem 6vw 3rem; }
+      .case-visual { margin: 0 6vw 3rem; height: 260px; }
+      .case-gallery { padding: 0 6vw 4rem; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-item { height: 220px; }
+      .gallery-item:first-child { height: 260px; }
+      .case-mockup { padding: 4rem 6vw; }
+      .case-footer { margin: 0 6vw; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="../Assets/Logo-Main.svg" alt="Lumi Design logo">
+    </a>
+    <a href="index.html#work" class="back-link">← Back</a>
+    <a href="index.html#contact" class="nav-cta">Book with me</a>
+  </nav>
+
+  <section class="case-hero">
+    <div class="case-eyebrow">Case Study</div>
+    <h1 class="case-title" id="project-title">Hero Sub Shop</h1>
+    <p class="case-desc" id="project-desc">A neighborhood sub shop with a loyal following, a laminated menu, and zero web presence. They didn't need anything fancy — just a clean, easy site that told people where they were, what they made, and why they should come in. </p>
+    <div class="case-tags" id="project-tags"></div>
+  </section>
+
+
+
+  <section class="case-gallery">
+    <div class="gallery-grid" id="project-gallery"></div>
+  </section>
+
+  <section class="case-mockup">
+    <h2 class="mockup-title">The <i>full</i> mockup </h2>
+    <div class="mockup-image">
+      <img src="../Assets/pastafullimg.png" alt="Full website mockup">
+    </div>
+  </section>
+
+  <section class="case-footer">
+    <p>Want a site like this?</p>
+    <a href="index.html#contact" class="nav-cta">Let's talk</a>
+  </section>
+
+  <script>
+    const projectData = {
+      title: "Bloom SaaS",
+      tags: ["Figma", "Webflow", "Copywriting", "2024"],
+      images: [
+        '../Assets/sub-3.png',
+        '../Assets/sub-2.png'
+      ],
+      mockupImage: '../Assets/sub-full.png'
+    };
+
+    // Set page title
+    document.getElementById('page-title').textContent = projectData.title + " — Lumi Design Studio ✦";
+
+    // Set tags
+    const tagsEl = document.getElementById('project-tags');
+    projectData.tags.forEach(tag => {
+      const span = document.createElement('span');
+      span.textContent = tag;
+      tagsEl.appendChild(span);
+    });
+
+    // Set gallery images
+    const galleryEl = document.getElementById('project-gallery');
+    projectData.images.forEach(imagePath => {
+      const div = document.createElement('div');
+      div.className = 'gallery-item';
+      const img = document.createElement('img');
+      img.src = imagePath;
+      img.alt = 'Project image';
+      img.style.width = '100%';
+      img.style.height = '100%';
+      img.style.objectFit = 'cover';
+      img.style.borderRadius = '18px';
+      div.appendChild(img);
+      galleryEl.appendChild(div);
+    });
+
+    // Set mockup image
+    const mockupImg = document.querySelector('.mockup-image img');
+    if (mockupImg) {
+      mockupImg.src = projectData.mockupImage;
+    }
+  </script>
+
+</body>
+</html>
