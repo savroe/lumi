@@ -225,18 +225,7 @@
   .about-section {
     padding: 72px 0 96px;
     border-top: 1px solid var(--line);
-    display: grid;
-    grid-template-columns: 340px 1fr;
-    gap: 64px;
-    align-items: start;
   }
-  .about-photo {
-    width: 100%; aspect-ratio: 4 / 5; border-radius: 12px; overflow: hidden;
-    background: linear-gradient(135deg,#E0247A 0%,#9A3796 55%,#4A2E6E 100%);
-    display: flex; align-items: center; justify-content: center;
-    color: #fff; font-family: 'Rubik', sans-serif; font-weight: 600; font-size: 56px; letter-spacing: 0.04em;
-  }
-  .about-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .about-label {
     font-family: 'Rubik', sans-serif; font-size: 11px; letter-spacing: 0.08em;
     text-transform: uppercase; color: var(--ink-soft); margin-bottom: 10px;
@@ -267,8 +256,7 @@
     .work-grid { grid-template-columns: 1fr; gap: 56px; }
     .timeline-row { grid-template-columns: 44px 1fr; row-gap: 2px; }
     .timeline-role { grid-column: 2; }
-    .about-section { grid-template-columns: 1fr; gap: 32px; padding: 56px 0 72px; }
-    .about-photo { max-width: 320px; }
+    .about-section { padding: 56px 0 72px; }
   }
 </style>
 </head>
@@ -361,18 +349,14 @@
   </section>
 
   <section class="about-section" id="about">
-    <div class="about-photo">
-      <!-- To add your photo, replace the SR text with:
-           <img src="images/savannah.webp" alt="Portrait of Savannah Roe"> -->
-      SR
-    </div>
     <div class="about-text">
       <div class="about-label">About</div>
       <h2 class="about-title">A little more about me</h2>
-      <p>I spent ten years working in restaurants, and it's still the lens I design through. I know what it feels like to use a slow, confusing system in the middle of a rush, with someone waiting on the other side of it. I studied HCI while working in a restaurant that ran on Toast, so I got to watch what I was learning play out in real life.</p>
+      <p>I've loved design and programming for about as long as I can remember. In middle school, I asked for Photoshop for Christmas one year, and around the same age I taught myself to code. I've been making things on a screen ever since.</p>
+      <p>I also spent ten years working in restaurants, and it's still a lens I design through. I know what it feels like to use a slow, confusing system in the middle of a rush, with someone waiting on the other side of it.</p>
       <p>That's probably why I care so much about the people on the other end of the screen. At Olio Health, I designed for admissions staff who were juggling four different systems just to bring one patient in, and making their day easier is the kind of work I want to keep doing. I have a master's in Human-Computer Interaction Design from Indiana University, and these days I'm especially curious about designing AI experiences that people can actually trust.</p>
-      <p>Away from the screen, you'll find me reading, making pottery, and tending to my house plants. Small, patient, hands-on things. It all comes back to noticing the little things.</p>
-      <p>I'm currently looking for my next role. If you'd like to talk, say hello at <a href="mailto:savroe@gmail.com">savroe@gmail.com</a>.</p>
+      <p>Away from the screen, you'll find me reading, making pottery, and tending to my house plants.</p>
+      <p> If you'd like to chat, say 👋 hello at <a href="mailto:savroe@gmail.com">savroe@gmail.com</a>.</p>
     </div>
   </section>
 
