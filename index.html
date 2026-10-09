@@ -1,1043 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lumi Design Studio ✦</title>
-  <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/savroe/lumi/main/images/favicon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Savannah Roe — Product Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink: #18181F;
+    --ink-soft: #6B6B76;
+    --line: #E7E6ED;
+    --accent: #C72A7C;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --paper: #121117;
+      --ink: #EFEEF4;
+      --ink-soft: #A5A3B0;
+      --line: #2B2A34;
+      --accent: #F24EA3;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #121117;
+    --ink: #EFEEF4;
+    --ink-soft: #A5A3B0;
+    --line: #2B2A34;
+    --accent: #F24EA3;
+  }
 
-    :root {
-      --terracotta: #E35336;
-      --peach:      #FFD3AC;
-      --lavender:   #9988A1;
-      --brown:      #8A2B0E;
-      --cream:      #FDF6EE;
-      --ink:        #1E1412;
-      --serif:      'DM Serif Display', serif;
-      --sans:       'DM Sans', sans-serif;
-    }
+  /* gradient tile tokens, derived from the two reference palettes */
+  .grad-synth      { background: linear-gradient(135deg,#E0247A 0%,#7B3294 32%,#332B5E 60%,#1B4965 82%,#4EC9B0 100%); }
+  .grad-synth-warm { background: linear-gradient(135deg,#E0247A 0%,#9A3796 55%,#4A2E6E 100%); }
+  .grad-synth-cool { background: linear-gradient(135deg,#332B5E 0%,#1B4965 55%,#4EC9B0 100%); }
+  .grad-outrun     { background: linear-gradient(135deg,#140F3C 0%,#241B7A 28%,#C4568A 58%,#E896F0 82%,#6FD0E8 100%); }
+  .grad-outrun-dark{ background: linear-gradient(135deg,#140F3C 0%,#241B7A 55%,#C4568A 100%); }
+  .grad-outrun-pop { background: linear-gradient(135deg,#C4568A 0%,#E896F0 55%,#6FD0E8 100%); }
 
-    html { scroll-behavior: smooth; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Rubik', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
 
-    body {
-      font-family: var(--sans);
-      background: var(--cream);
-      color: var(--ink);
-      overflow-x: hidden;
-    }
+  /* NAV */
+  nav {
+    padding-top: env(safe-area-inset-top, 0px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 22px 32px; max-width: 1240px; margin: 0 auto; gap: 16px; flex-wrap: wrap;
+  }
+  .nav-brand { display: flex; align-items: baseline; gap: 14px; }
+  .nav-name { font-family: 'Rubik', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.06em; }
+  .nav-role { font-size: 12px; color: var(--ink-soft); letter-spacing: 0.06em; }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a {
+    color: var(--ink-soft); text-decoration: none; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .nav-links a.active { color: var(--accent); }
+  .nav-links a:hover { color: var(--ink); }
 
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.25rem 5vw;
-      background: rgba(253, 246, 238, 0.88);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(227, 83, 54, 0.12);
-    }
-    .nav-logo {
-      display: inline-flex;
-      align-items: center;
-    }
-    .nav-logo img {
-      display: block;
-      max-height: 48px;
-      width: auto;
-    }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      text-decoration: none;
-      font-size: .875rem;
-      font-weight: 500;
-      color: var(--ink);
-      letter-spacing: .02em;
-      transition: color .2s;
-    }
-    .nav-links a:hover { color: var(--terracotta); }
-    .nav-cta {
-      background: var(--terracotta);
-      color: #fff !important;
-      padding: .5rem 1.25rem;
-      border-radius: 100px;
-      transition: background .2s !important;
-    }
-    .nav-cta:hover { background: var(--brown) !important; color: #fff !important; }
+  /* HERO */
+  .hero {
+    padding: 100px 0 64px;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .hero-intro { text-align: left; }
+  .hero-name {
+    font-family: 'Rubik', sans-serif; font-weight: 600;
+    font-size: clamp(28px, 3.2vw, 40px); line-height: 1.15;
+    margin: 0 0 10px; color: var(--ink);
+  }
+  .hero-sub {
+    font-family: 'Rubik', sans-serif; font-weight: 400;
+    font-size: clamp(16px, 1.5vw, 19px); line-height: 1.5;
+    color: var(--accent); margin: 0;
+  }
+  .hero-sub strong { font-weight: 600; }
+  .hero-headline {
+    font-family: 'Rubik', sans-serif; font-weight: 500;
+    font-size: clamp(20px, 2vw, 26px); line-height: 1.35;
+    color: var(--ink); margin: 24px 0 0; max-width: 24ch;
+  }
 
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      padding: 7rem 0vw 0rem;
-      gap: 4rem;
-    }
-    .hero-text {
-      padding-left: 40px;
-    }
-    .hero-text h1 {
-      font-family: var(--serif);
-      font-size: clamp(3rem, 4.5vw, 5.2rem);
-      line-height: 1.05;
-      color: var(--brown);
-      margin-bottom: 1.5rem;
-      
-    }
-    .hero-text h1 em {
-      font-style: italic;
-      color: var(--terracotta);
-      
-    }
-    .hero-text p {
-      font-size: 1.1rem;
-      line-height: 1.75;
-      color: #5a3a2e;
-      max-width: 46ch;
-      margin-bottom: 2.5rem;
-      
-    }
-    .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary {
-      display: inline-block;
-      background: var(--terracotta);
-      color: #fff;
-      padding: 15px 20px;
-      border-radius: 100px;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: .95rem;
-      transition: background .2s, transform .15s;
-      padding-left: 24px;
-    }
-    .btn-primary:hover { background: var(--brown); transform: translateY(-2px); }
-    .hero-visual {
-      position: relative;
-      min-height: 560px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .hero-card {
-      position: relative;
-      width: 100%;
-      max-width: 520px;
-      min-height: 560px;
-      background: linear-gradient(180deg, #ffe2ce 0%, #f8b48f 45%, #e35433 100%);
-      border-radius: 40px;
-      padding: 3.5rem 15px;
-      box-shadow: 0 35px 80px rgba(227, 83, 54, 0.18);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-    .hero-main-logo {
-      font-family: var(--serif);
-      color: #fff;
-      font-size: clamp(5rem, 9vw, 7rem);
-      line-height: 0.9;
-      margin-bottom: 1rem;
-      text-shadow: 0 20px 30px rgba(0,0,0,0.12);
-    }
-    .hero-subtitle {
-      font-size: 1rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.85);
-      margin-bottom: 2rem;
-    }
-    .hero-badge {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: inline-flex;
-      align-items: center;
-      gap: .6rem;
-      background: rgba(255,255,255,0.95);
-      color: var(--brown);
-      padding: .85rem 1.25rem;
-      border-radius: 999px;
-      font-size: .92rem;
-      font-weight: 500;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-    }
-    .hero-badge span {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #3a7b3f;
-      display: inline-block;
-    }
-    .hero-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top left, rgba(255,255,255,0.25), transparent 35%),
-                  radial-gradient(circle at bottom right, rgba(255,255,255,0.18), transparent 40%);
-      pointer-events: none;
-    }
+  .timeline { font-family: 'Rubik', sans-serif; }
+  .timeline-row {
+    display: grid;
+    grid-template-columns: 52px 1fr 1fr;
+    gap: 18px;
+    padding: 9px 0;
+    font-size: 13px;
+  }
+  .timeline-year { color: var(--ink-soft); }
+  .timeline-company { color: var(--ink); font-weight: 500; }
+  .timeline-role { color: var(--ink-soft); }
 
-    /* ── MARQUEE ── */
-    .marquee-wrap {
-      background: var(--brown);
-      padding: .9rem 0;
-      overflow: hidden;
-    }
-    .marquee-track {
-      display: flex;
-      gap: 3rem;
-      animation: marquee 18s linear infinite;
-      white-space: nowrap;
-    }
-    .marquee-track span {
-      font-size: .85rem;
-      font-weight: 500;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--peach);
-      flex-shrink: 0;
-    }
-    .marquee-track span.dot {
-      color: var(--terracotta);
-      font-size: 1.2rem;
-      line-height: 1;
-    }
-    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  /* PROJECT GRID */
+  .work-section { padding: 40px 0 100px; }
+  .work-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px 32px;
+    align-items: start;
+  }
 
-    /* ── SERVICES ── */
-    section { padding: 7rem 5vw; }
-    .section-label {
-      font-size: .78rem;
-      font-weight: 500;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--terracotta);
-      margin-bottom: 1rem;
-    }
-    .section-title {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      color: var(--brown);
-      margin-bottom: 1rem;
-      line-height: 1.15;
-    }
-    .section-sub {
-      font-size: 1.05rem;
-      color: #5a3a2e;
-      max-width: 52ch;
-      line-height: 1.7;
-      margin-bottom: 3.5rem;
-    }
+  .tile { display: block; text-decoration: none; color: inherit; }
+  .tile-visual {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 2.6% / 3.5%;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.35s ease, transform 0.35s ease;
+  }
+  /* Cover images fill the frame; gradients are placeholders until covers are added */
+  .tile-cover {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    transition: transform 0.6s cubic-bezier(.2,.7,.2,1);
+  }
+  .tile-bg {
+    position: absolute; inset: 0;
+    transition: transform 0.6s cubic-bezier(.2,.7,.2,1);
+  }
 
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-    .service-card {
-      background: #fff;
-      border-radius: 20px;
-      padding: 2.5rem 2rem;
-      border: 1px solid rgba(227, 83, 54, 0.1);
-      transition: transform .25s, box-shadow .25s;
-    }
-    .service-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 50px rgba(138, 43, 14, 0.1);
-    }
-    .service-icon {
-      width: 52px; height: 52px;
-      border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-    .service-card:nth-child(1) .service-icon { background: rgba(227, 83, 54, 0.1); }
-    .service-card:nth-child(2) .service-icon { background: rgba(153, 136, 161, 0.15); }
-    .service-card:nth-child(3) .service-icon { background: rgba(255, 211, 172, 0.4); }
-    .service-card h3 {
-      font-family: var(--serif);
-      font-size: 1.35rem;
-      color: var(--brown);
-      margin-bottom: .75rem;
-    }
-    .service-card p {
-      font-size: .9rem;
-      line-height: 1.7;
-      color: #6b4033;
-    }
-    .service-tags {
-      display: flex; flex-wrap: wrap; gap: .5rem;
-      margin-top: 1.5rem;
-    }
-    .service-tags span {
-      font-size: .75rem;
-      font-weight: 500;
-      padding: .3rem .75rem;
-      border-radius: 100px;
-      background: var(--cream);
-      color: var(--brown);
-      border: 1px solid rgba(138, 43, 14, 0.15);
-    }
+  .tile-caption { margin-top: 18px; }
+  .tile-meta {
+    font-family: 'Rubik', sans-serif;
+    font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ink-soft); margin-bottom: 6px;
+  }
+  .tile-title {
+    font-family: 'Rubik', sans-serif; font-weight: 600;
+    font-size: 21px; line-height: 1.3; color: var(--ink);
+    margin: 0 0 8px;
+    background-image: linear-gradient(var(--accent), var(--accent));
+    background-repeat: no-repeat; background-size: 0% 2px; background-position: 0 100%;
+    display: inline; padding-bottom: 2px;
+    transition: background-size 0.35s ease;
+  }
+  .tile-summary {
+    font-family: 'Rubik', sans-serif; font-size: 14px; line-height: 1.6;
+    color: var(--ink-soft); margin: 8px 0 14px; max-width: 52ch;
+  }
+  .tile-cta {
+    font-family: 'Rubik', sans-serif; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink);
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .tile-cta .arrow { display: inline-block; transition: transform 0.3s ease; }
 
-    /* ── WORK ── */
-    #work {
-      background: #FFD3AC; 
-    }
+  /* hover + keyboard focus on live tiles */
+  a.tile:hover .tile-visual,
+  a.tile:focus-visible .tile-visual { box-shadow: 0 18px 40px rgba(20,15,60,0.18); transform: translateY(-4px); }
+  a.tile:hover .tile-cover, a.tile:hover .tile-bg,
+  a.tile:focus-visible .tile-cover, a.tile:focus-visible .tile-bg { transform: scale(1.04); }
+  a.tile:hover .tile-title, a.tile:focus-visible .tile-title { background-size: 100% 2px; }
+  a.tile:hover .tile-cta .arrow, a.tile:focus-visible .tile-cta .arrow { transform: translateX(6px); }
+  a.tile:hover .tile-cta, a.tile:focus-visible .tile-cta { color: var(--accent); }
+  a.tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; border-radius: 8px; }
 
-    #work .section-label { color: #7F321A;); opacity: .6; }
-    #work .section-title { color: #7F321A; }
-    #work .section-sub { color: 7F321A; }
+  /* coming soon tile */
+  .tile.soon { cursor: default; }
+  .tile.soon .tile-visual { opacity: 0.55; }
+  .pill-soon {
+    display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--ink-soft);
+    border: 1px solid var(--line); border-radius: 100px; padding: 4px 12px;
+  }
 
-    .work-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-    .work-card {
-      display: block;
-      border-radius: 20px;
-      overflow: hidden;
-      position: relative;
-      cursor: pointer;
-      text-decoration: none;
-      color: inherit;
-    }
-    .work-card:first-child { grid-column: auto; }
-    .work-thumb {
-      height: 320px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-      transition: transform .4s;
-      background: #2C4A38;
-    }
-    .work-thumb img {
-      display: block;
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-    }
-    .work-card:first-child .work-thumb { height: 320px; }
-    .work-card:hover .work-thumb { transform: scale(1.02); }
-    .work-card:nth-child(1) .work-thumb { background: linear-gradient(135deg, var(--terracotta), var(--brown)); }
-    .work-card:nth-child(2) .work-thumb { background: linear-gradient(135deg, #c6b8d4, var(--lavender)); }
-    .work-card:nth-child(3) .work-thumb { background: linear-gradient(135deg, var(--peach), #e8b080); }
+  /* gradient placeholders from the Synthwave and Outrun palettes */
+  .grad-synth      { background: linear-gradient(135deg,#E0247A 0%,#7B3294 32%,#332B5E 60%,#1B4965 82%,#4EC9B0 100%); }
+  .grad-outrun     { background: linear-gradient(135deg,#140F3C 0%,#241B7A 28%,#C4568A 58%,#E896F0 82%,#6FD0E8 100%); }
+  .grad-outrun-pop { background: linear-gradient(135deg,#C4568A 0%,#E896F0 55%,#6FD0E8 100%); }
 
-    .work-mock {
-      width: 70%;
-      background: rgba(255,255,255,0.12);
-      border-radius: 12px;
-      padding: 1.5rem;
-      backdrop-filter: blur(8px);
-    }
-    .work-mock-bar {
-      height: 8px;
-      border-radius: 4px;
-      background: rgba(255,255,255,0.25);
-      margin-bottom: .6rem;
-    }
-    .work-mock-bar.w60 { width: 60%; }
-    .work-mock-bar.w80 { width: 80%; }
-    .work-mock-bar.w45 { width: 45%; }
-    .work-mock-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; margin-top: .75rem;
-    }
-    .work-mock-block {
-      height: 50px;
-      background: rgba(255,255,255,0.15);
-      border-radius: 6px;
-    }
-    .work-info {
-      padding: 1.25rem 1.5rem;
-      background: #FCEDDF4D;
-      border: 1px solid #501e0f1a;);
-      border-top: none;
-      border-radius: 0 0 20px 20px;
-    }
-    .work-info h3 {
-      font-family: var(--serif);
-      font-size: 1.2rem;
-      color: #7F321A;
-      margin-bottom: .3rem;
-    }
-    .work-info p { font-size: .82rem; color: #7F321A; }
+  @media (prefers-reduced-motion: reduce) {
+    .tile-visual, .tile-cover, .tile-bg, .tile-title, .tile-cta .arrow { transition: none; }
+    a.tile:hover .tile-visual, a.tile:hover .tile-cover, a.tile:hover .tile-bg { transform: none; }
+  }
 
-    /* ── PROCESS ── */
-    .process-steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      counter-reset: step;
-    }
-    .process-step {
-      position: relative;
-      padding-top: 1rem;
-    }
-    .step-num {
-      font-family: var(--serif);
-      font-size: 4rem;
-      color: var(--peach);
-      line-height: 1;
-      margin-bottom: 1rem;
-    }
-    .process-step h3 {
-      font-family: var(--serif);
-      font-size: 1.2rem;
-      color: var(--brown);
-      margin-bottom: .6rem;
-    }
-    .process-step p { font-size: .88rem; color: #6b4033; line-height: 1.7; }
-    .step-line {
-      position: absolute; top: 3.5rem; right: -0.75rem;
-      width: 1.5rem; height: 2px;
-      background: var(--peach);
-    }
-    .process-step:last-child .step-line { display: none; }
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 36px 0 48px;
+    padding-bottom: calc(48px + env(safe-area-inset-bottom, 0px));
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 12px; color: var(--ink-soft); flex-wrap: wrap; gap: 12px;
+  }
+  footer a { color: var(--ink-soft); text-decoration: none; margin-left: 20px; }
+  footer a:hover { color: var(--ink); }
 
-    /* ── ABOUT ── */
-    #about {
-      background: linear-gradient(135deg, var(--peach) 0%, #f5c8a0 100%);
-      display: block;
-    }
-    #about .section-label { color: var(--brown); opacity: .6; }
-    #about .section-title { color: var(--brown); }
-    .about-body { font-size: 1rem; line-height: 1.8; color: #5a3a2e; margin-bottom: 1.5rem; }
-    .about-visual {
-      position: relative;
-      height: 480px;
-    }
-    .about-img-bg {
-      position: absolute; inset: 0;
-      background: var(--terracotta);
-      border-radius: 24px;
-      opacity: .15;
-    }
-    .about-photo-placeholder {
-      position: absolute; inset: 20px;
-      background: linear-gradient(160deg, var(--terracotta) 0%, var(--brown) 100%);
-      border-radius: 20px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .about-initials {
-      font-family: var(--serif);
-      font-size: 7rem;
-      color: rgba(255,255,255,0.25);
-      font-style: italic;
-    }
-    .skills-chips { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 2rem; }
-    .skill-chip {
-      padding: .4rem 1rem;
-      border-radius: 100px;
-      font-size: .8rem;
-      font-weight: 500;
-      background: rgba(138, 43, 14, 0.1);
-      color: var(--brown);
-      border: 1px solid rgba(138, 43, 14, 0.2);
-    }
-    .about-stats {
-      display: flex; gap: 2.5rem; margin-top: 2rem;
-    }
-    .stat-num {
-      font-family: var(--serif);
-      font-size: 2.5rem;
-      color: var(--brown);
-      line-height: 1;
-    }
-    .stat-label { font-size: .8rem; color: #7a5040; margin-top: .25rem; }
-
-    /* ── PRICING ── */
-    #pricing { background: var(--lavender); }
-    #pricing .section-label { color: rgba(255,255,255,0.6); }
-    #pricing .section-title { color: #fff; }
-    #pricing .section-sub { color: rgba(255,255,255,0.75); }
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      align-items: start;
-    }
-    .pricing-card {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 20px;
-      padding: 2.25rem 2rem;
-      backdrop-filter: blur(8px);
-      display: flex;
-      flex-direction: column;
-    }
-    .pricing-card.featured {
-      background: #fff;
-      border: 1px solid rgba(255,255,255,0.4);
-      transform: translateY(-12px);
-      box-shadow: 0 24px 60px rgba(43, 30, 53, 0.25);
-    }
-    .pricing-badge {
-      align-self: flex-start;
-      font-size: .68rem;
-      font-weight: 600;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      background: var(--terracotta);
-      color: #fff;
-      padding: .3rem .7rem;
-      border-radius: 100px;
-      margin-bottom: 1rem;
-    }
-    .pricing-name {
-      font-family: var(--serif);
-      font-size: 1.4rem;
-      color: #fff;
-      margin-bottom: .35rem;
-    }
-    .pricing-card.featured .pricing-name { color: var(--brown); }
-    .pricing-tagline {
-      font-size: .85rem;
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 1.25rem;
-    }
-    .pricing-card.featured .pricing-tagline { color: #7a5040; }
-    .pricing-price {
-      font-family: var(--serif);
-      font-size: 2.5rem;
-      color: var(--peach);
-      margin-bottom: .25rem;
-    }
-    .pricing-card.featured .pricing-price { color: var(--terracotta); }
-    .pricing-timeline {
-      font-size: .78rem;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 1.75rem;
-    }
-    .pricing-card.featured .pricing-timeline { color: #9a6a52; }
-    .pricing-features {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: .85rem;
-      margin-bottom: 2rem;
-      flex-grow: 1;
-    }
-    .pricing-features li {
-      font-size: .88rem;
-      line-height: 1.5;
-      color: rgba(255,255,255,0.85);
-      padding-left: 1.4rem;
-      position: relative;
-    }
-    .pricing-card.featured .pricing-features li { color: #5a3a2e; }
-    .pricing-features li::before {
-      content: "✦";
-      position: absolute;
-      left: 0;
-      color: var(--peach);
-      font-size: .75rem;
-      top: .15rem;
-    }
-    .pricing-card.featured .pricing-features li::before { color: var(--terracotta); }
-    .pricing-cta {
-      display: inline-block;
-      text-align: center;
-      padding: .85rem 1.5rem;
-      border-radius: 100px;
-      font-size: .85rem;
-      font-weight: 500;
-      text-decoration: none;
-      border: 1px solid rgba(255,255,255,0.4);
-      color: #fff;
-      transition: background .2s, color .2s;
-    }
-    .pricing-cta:hover { background: rgba(255,255,255,0.15); }
-    .pricing-card.featured .pricing-cta {
-      background: var(--terracotta);
-      border: 1px solid var(--terracotta);
-      color: #fff;
-    }
-    .pricing-card.featured .pricing-cta:hover { background: var(--brown); border-color: var(--brown); }
-    .pricing-addon {
-      margin-top: 2.5rem;
-      text-align: center;
-      font-size: .9rem;
-      color: rgba(255,255,255,0.75);
-    }
-    .pricing-addon strong { color: #fff; }
-
-    /* ── CONTACT ── */
-    #contact {
-      background: var(--brown);
-      text-align: center;
-    }
-    #contact .section-label { color: var(--peach); opacity: .6; }
-    #contact .section-title { color: var(--peach); max-width: 16ch; margin: 0 auto 1rem; }
-    #contact .section-sub { color: rgba(255, 211, 172, 0.65); margin: 0 auto 3rem; text-align: center; }
-    .contact-form {
-      max-width: 580px;
-      margin: 0 auto;
-      text-align: left;
-    }
-    .form-row { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1rem; }
-    .form-group { display: flex; flex-direction: column; gap: .4rem; margin-bottom: 1rem; }
-    .form-group label { font-size: .8rem; font-weight: 500; color: var(--peach); opacity: .7; letter-spacing: .05em; text-transform: uppercase; }
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255, 211, 172, 0.2);
-      border-radius: 10px;
-      padding: .85rem 1rem;
-      font-size: .95rem;
-      color: var(--peach);
-      font-family: var(--sans);
-      outline: none;
-      transition: border .2s;
-    }
-    .form-group input::placeholder,
-    .form-group textarea::placeholder { color: rgba(255, 211, 172, 0.3); }
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus { border-color: var(--terracotta); }
-    .form-group textarea { min-height: 120px; resize: vertical; }
-    .form-group select option { background: var(--brown); color: var(--peach); }
-    .form-submit {
-      width: 100%;
-      background: var(--terracotta);
-      color: #fff;
-      border: none;
-      border-radius: 100px;
-      padding: 1rem;
-      font-size: 1rem;
-      font-weight: 500;
-      font-family: var(--sans);
-      cursor: pointer;
-      transition: background .2s, transform .15s;
-    }
-    .form-submit:hover { background: #c93e25; transform: translateY(-2px); }
-
-    /* ── FOOTER ── */
-    footer {
-      background:rgba(253, 246, 238, 0.88);
-      padding: 3rem 5vw;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
-    .footer-logo {
-      font-family: var(--serif);
-      font-size: 1.2rem;
-      color: var(--peach);
-      text-decoration: none;
-    }
-    .footer-branding {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.5rem;
-    }
-    .footer-links { display: flex; gap: 2rem; list-style: none; }
-    .footer-links a { font-size: .85rem; color:#D25D41; text-decoration: none; transition: color .2s; }
-    .footer-links a:hover { color: #D25D41; }
-    .footer-social { display: flex; gap: 1.5rem; }
-    .footer-social a { font-size: 1.2rem; color: #D25D41; text-decoration: none; transition: color .2s; }
-    .footer-social a:hover { color: var(--peach); }
-    .footer-copy { font-size: .8rem; color: #D25D41; }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; padding-top: 7rem; }
-      .hero-visual { display: none; }
-      .services-grid { grid-template-columns: 1fr; }
-      .work-grid { grid-template-columns: repeat(2, 1fr); }
-      .work-card:first-child { grid-column: 1 / -1; }
-      .process-steps { grid-template-columns: 1fr 1fr; }
-      #about { grid-template-columns: 1fr; }
-      .about-visual { height: 300px; }
-      .pricing-grid { grid-template-columns: 1fr; }
-      .pricing-card.featured { transform: none; }
-      footer { flex-direction: column; text-align: center; }
-      .footer-links { flex-wrap: wrap; justify-content: center; }
-    }
-    @media (max-width: 600px) {
-      .nav-links { display: none; }
-      .process-steps { grid-template-columns: 1fr; }
-      .step-line { display: none; }
-    }
-  </style>
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; gap: 36px; }
+    .work-grid { grid-template-columns: 1fr; gap: 56px; }
+    .timeline-row { grid-template-columns: 44px 1fr; row-gap: 2px; }
+    .timeline-role { grid-column: 2; }
+  }
+</style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a href="#" class="nav-logo">
-      <img src="images/Logo-Main.svg" alt="Lumi Design logo">
-    </a>
-    <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#process">Process</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="images/RoeResume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
-      <li><a href="#contact" class="nav-cta">Book with me</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-text">
-      <div class="section-label">Freelance Web Designer</div>
-      <h1>Websites that make people <em>stop scrolling.</em></h1>
-      <p>I build sites that turn heads, win trust, and actually grow your business.</p>
-      <div class="btn-group">
-        <a href="#contact" class="btn-primary">Let's Chat!</a>
-      </div>
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <span class="nav-name">SAVANNAH ROE</span>
+      <span class="nav-role">PRODUCT DESIGNER</span>
     </div>
-    <div class="hero-visual">
-      <img src="images/Hero.png" alt="Lumi Design hero image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
-    </div>
-  </section>
-
-  <!-- MARQUEE -->
-  <div class="marquee-wrap">
-    <div class="marquee-track">
-      <span>Web Design</span><span class="dot">·</span>
-      <span>Brand Identity</span><span class="dot">·</span>
-      <span>Figma Prototyping</span><span class="dot">·</span>
-      <span>Web Development</span><span class="dot">·</span>
-      <span>UX Strategy</span><span class="dot">·</span>
-      <span>Landing Pages</span><span class="dot">·</span>
-      <span>E-Commerce</span><span class="dot">·</span>
-      <span>Web Design</span><span class="dot">·</span>
-      <span>Brand Identity</span><span class="dot">·</span>
-      <span>Figma Prototyping</span><span class="dot">·</span>
-      <span>Web Development</span><span class="dot">·</span>
-      <span>UX Strategy</span><span class="dot">·</span>
-      <span>Landing Pages</span><span class="dot">·</span>
-      <span>E-Commerce</span><span class="dot">·</span>
+    <div class="nav-links">
+      <a href="#work" class="active">Work</a>
+      <a href="#about">About</a>
+      <a href="#" id="resume-link">Resume</a>
     </div>
   </div>
+</nav>
 
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="section-label">What I Do</div>
-    <h2 class="section-title">I build the whole thing</h2>
-    <p class="section-sub">How it looks, what it says, and how people find it.
-No confusing packages. No handing you off to someone else. Just a website that works.</p>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon">✦</div>
-        <h3>Website Design</h3>
-        <p>Your website is usually the first impression someone gets of your business, and first impressions stick. I design sites that look intentional, feel easy to navigate, and actually reflect what makes you different. Everything is built to look great on any device.</p>
-        <div class="service-tags">
-          <span>Figma</span><span>Responsive</span><span>UI/UX</span><span>Mobile</span><span>Web Design</span>
-        </div>
+<div class="container">
+  <section class="hero">
+    <div class="hero-intro">
+      <h1 class="hero-name">Hi, I'm Savannah!</h1>
+      <p class="hero-sub"><strong>Product Designer</strong> based in Indianapolis, IN</p>
+      <p class="hero-headline">I notice the little things. Then I make them better.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-row">
+        <div class="timeline-year">2025</div>
+        <div class="timeline-company">Olio Health</div>
+        <div class="timeline-role">User Experience Designer</div>
       </div>
-      <div class="service-card">
-        <div class="service-icon">◈</div>
-        <h3>Brand Identity</h3>
-        <p>Your website, your socials, your colors - they should all feel like they belong to the same business. I take what you already have and make it all feel intentional, consistent, and unmistakably you.</p>
-        <div class="service-tags">
-          <span>Colors</span><span>Style Guide</span><span>Typography</span>
-        </div>
+      <div class="timeline-row">
+        <div class="timeline-year">2021</div>
+        <div class="timeline-company">OneAmerica Financial</div>
+        <div class="timeline-role">User Interface Designer</div>
       </div>
-      <div class="service-card">
-        <div class="service-icon">⬡</div>
-        <h3>Search Engine Optimization (SEO)</h3>
-        <p>You shouldn't have to rely on word of mouth forever. I make sure your site is set up so that when someone searches for what you do in your area, you're actually showing up. It's one of the best things you can do for your business, just customers finding you on their own.</p>
-        <div class="service-tags">
-          <span>SEO</span><span>Google Analytics</span>
-        </div>
+      <div class="timeline-row">
+        <div class="timeline-year">2019</div>
+        <div class="timeline-company">Lumi Design</div>
+        <div class="timeline-role">Freelance Web Designer</div>
       </div>
     </div>
   </section>
 
-  <!-- WORK -->
-  <section id="work">
-    <div class="section-label">Selected Projects</div>
-    <h2 class="section-title">Work I'm proud of</h2>
-    <p class="section-sub">A curated look at recent projects spanning e-commerce, SaaS, and lifestyle brands.</p>
+  <section class="work-section" id="work">
     <div class="work-grid">
 
-      <!-- SDM CARD -->
-      <a href="pasta-case-study.html" class="work-card">
-        <div class="work-thumb" style="height:320px; display:block; overflow:hidden; position:relative;">
-          <img src="images/pastacoverimg.png" alt="Spaghetti di Mezzanotte cover" style="width:100%; height:100%; object-fit:cover; display:block;" />
+      <!-- PROJECT 1 -->
+      <a class="tile" href="case-study-admissions.html">
+        <div class="tile-visual">
+          <img class="tile-cover" src="images/admissions-cover.webp" alt="Mockup of the unified admissions workflow with AI-assisted background check" width="1400" height="1050">
         </div>
-        <div class="work-info">
-          <h3>Spaghetti di Mezzanotte — Brand & Web</h3>
-          <p>Brand Identity · Web Design · Typography · 2024</p>
+        <div class="tile-caption">
+          <div class="tile-meta">Olio Health · 2025</div>
+          <h3 class="tile-title">Consolidating four systems into one AI-assisted workflow</h3>
+          <p class="tile-summary">Combined four disconnected admissions tools into a single workflow with AI-assisted checks, cutting referral processing from up to 30 minutes to under 5.</p>
+          <span class="tile-cta">View case study <span class="arrow">→</span></span>
         </div>
       </a>
 
-      <!-- URBAN JUNGLE CARD -->
-      <a href="plants-case-study.html" class="work-card uj-card">
-        <div class="work-thumb" style="height:320px; display:block; overflow:hidden; position:relative;">
-          <img src="images/urbanjungle.png" alt="Urban Jungle cover" style="width:100%; height:100%; object-fit:cover; display:block;" />
+      <!-- PROJECT 2 -->
+      <a class="tile" href="case-study-filters.html">
+        <div class="tile-visual">
+          <img class="tile-cover" src="images/filters-cover.webp" alt="Mockup of the redesigned filter panel, in-filter search, and save search popup" width="1400" height="1050">
         </div>
-        <div class="work-info">
-          <h3>Urban Jungle —  Website</h3>
-          <p>Web Design · E-Commerce · Brand Identity · 2025</p>
-        </div>
-      </a>
-      <a href="sub-case-study.html" class="work-card">
-        <div class="work-thumb" style="height:320px; display:block; overflow:hidden; position:relative;">
-          <img src="images/subshop.png" alt="Hero Sub Shop cover" style="width:100%; height:100%; object-fit:cover; display:block;" />
-        </div>
-        <div class="work-info">
-          <h3>Hero Sub Shop — Restaurant Website</h3>
-          <p>Brand Identity · Web Design · Typography · 2026</p>
+        <div class="tile-caption">
+          <div class="tile-meta">Olio Health · 2025</div>
+          <h3 class="tile-title">Redesigning filters for a daily clinical tool</h3>
+          <p class="tile-summary">Replaced a row of hard-to-use dropdowns with a slide-out panel featuring select all, in-filter search, and saved searches.</p>
+          <span class="tile-cta">View case study <span class="arrow">→</span></span>
         </div>
       </a>
+
+      <!-- PROJECT 3: COMING SOON -->
+      <div class="tile soon" aria-disabled="true">
+        <div class="tile-visual">
+          <div class="tile-bg grad-outrun-pop"></div>
+        </div>
+        <div class="tile-caption">
+          <div class="tile-meta">Case study</div>
+          <h3 class="tile-title">GoodReads re-design</h3>
+          <p class="tile-summary">A new case study is on the way.</p>
+          <span class="pill-soon">Coming soon</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- PROCESS -->
-  <section id="process">
-    <div class="section-label">How It Works</div>
-    <h2 class="section-title">Here's exactly what happens<br> when you hire me</h2>
-    <p class="section-sub">No jargon, no surprises. Just a simple process that takes you from "I need a website" to "oh wow, that's actually mine."</p>
-    <div class="process-steps">
-      <div class="process-step">
-        <div class="step-num">01</div>
-        <h3> We Talk</h3>
-        <p>We hop on a call and you brain-dump everything! Your business, your customers, your vibe. I take notes. You don't have to know anything about websites yet.</p>
-        <div class="step-line"></div>
-      </div>
-      <div class="process-step">
-        <div class="step-num">02</div>
-        <h3>The Plan</h3>
-        <p>I figure out what your site actually needs (hint: it's probably not 12 pages). I'll show you the structure before any designing happens so we're on the same page.</p>
-        <div class="step-line"></div>
-      </div>
-      <div class="process-step">
-        <div class="step-num">03</div>
-        <h3>The Pretty Part</h3>
-        <p>This is where it starts looking like something. You'll see real designs, give feedback, and we'll go back and forth until you love it.</p>
-        <div class="step-line"></div>
-      </div>
-      <div class="process-step">
-        <div class="step-num">04</div>
-        <h3>Launch Day</h3>
-        <p>
-I build it, make sure it works on your phone, your mom's phone, and everything in between. Then i'll hand it over with a walkthrough so you actually know how to use it.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
+  <footer id="about">
+    <div>© Savannah Roe</div>
     <div>
-      <div class="section-label">About Lumi</div>
-      <h2 class="section-title">Design-obsessed,<br>results-driven</h2>
-      <p class="about-body">I taught myself HTML in middle school, hand coding websites about my favorite things, and never really stopped. That curiosity turned into a bachelor's degree, then a master's in Human-Centered Computing, which is really just the study of how to design technology around real people instead of the other way around. In plain terms: how to make a website that feels obvious and easy, even though there's a lot of thinking behind the scenes.</p>
-      <p class="about-body">I have 8+ years of hands-on experience building sites. From clean hand-written HTML & CSS to Squarespace, Showit, and every major builder in between. I also spent a decade in the restaurant industry myself, working everything from hosting to the kitchen to management, so when I work with restaurants and hospitality brands, I'm not guessing at how the business runs, I've lived it. That's why small businesses and local shops, especially in food and hospitality, are where I do my best work.</p>
-      <div class="skills-chips">
-        <span class="skill-chip">Figma</span>
-        <span class="skill-chip">Adobe Creative Suite</span>
-        <span class="skill-chip">Brand Design</span>
-        <span class="skill-chip">Typography</span>
-        <span class="skill-chip">UX Research</span>
-        <span class="skill-chip">Mockups</span>
-        <span class="skill-chip">Wireframing</span>
-      </div>
+      <a href="mailto:savroe@gmail.com">Email</a>
+      <a href="tel:+17146558778">Phone</a>
+      <a href="https://www.lumidesign.studio" target="_blank" rel="noopener">Lumi Design</a>
     </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="section-label">What I Do</div>
-    <h2 class="section-title">I build the whole thing</h2>
-    <p class="section-sub">How it looks, what it says, and how people find it.
-No confusing packages. No handing you off to someone else. Just a website that works.</p>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon">✦</div>
-        <h3>Website Design</h3>
-        <p>Your website is usually the first impression someone gets of your business, and first impressions stick. I design sites that look intentional, feel easy to navigate, and actually reflect what makes you different. Everything is built to look great on any device.</p>
-        <div class="service-tags">
-          <span>Figma</span><span>Responsive</span><span>UI/UX</span><span>Mobile</span><span>Web Design</span>
-        </div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">◈</div>
-        <h3>Brand Identity</h3>
-        <p>Your website, your socials, your colors - they should all feel like they belong to the same business. I take what you already have and make it all feel intentional, consistent, and unmistakably you.</p>
-        <div class="service-tags">
-          <span>Colors</span><span>Style Guide</span><span>Typography</span>
-        </div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">⬡</div>
-        <h3>Search Engine Optimization (SEO)</h3>
-        <p>You shouldn't have to rely on word of mouth forever. I make sure your site is set up so that when someone searches for what you do in your area, you're actually showing up. It's one of the best things you can do for your business, just customers finding you on their own.</p>
-        <div class="service-tags">
-          <span>SEO</span><span>Google Analytics</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRICING -->
-  <section id="pricing">
-    <div class="section-label">Investment</div>
-    <h2 class="section-title">Services &amp; pricing</h2>
-    <p class="section-sub">Straightforward packages with no surprises. Every project starts with a conversation so we can find the right fit for your business.</p>
-    <div class="pricing-grid">
-
-      <div class="pricing-card">
-        <div class="pricing-name">Starter</div>
-        <div class="pricing-tagline">A quick, polished site to get you online fast</div>
-        <div class="pricing-timeline">Delivered in 1 week</div>
-        <ul class="pricing-features">
-          <li>3-page website</li>
-          <li>Built from one of my pre-made templates</li>
-          <li>Your existing brand applied — no rebranding</li>
-          <li>Platform integration (DoorDash, online ordering, booking, etc.)</li>
-          <li>One-off project, ready to launch</li>
-        </ul>
-        <a href="#contact" class="pricing-cta">Get Started</a>
-      </div>
-
-      <div class="pricing-card featured">
-        <div class="pricing-badge">Most Popular</div>
-        <div class="pricing-name">Growth</div>
-        <div class="pricing-tagline">More room to tell your story, with a custom feel</div>
-        <div class="pricing-timeline">Delivered in 2–3 weeks</div>
-        <ul class="pricing-features">
-          <li>5–7 page website</li>
-          <li>Template-based, customized layout, colors &amp; sections</li>
-          <li>Light brand polish — refined palette &amp; typography</li>
-          <li>Platform integrations included</li>
-          <li>Basic SEO setup (titles, meta descriptions, alt text)</li>
-        </ul>
-        <a href="#contact" class="pricing-cta">Get Started</a>
-      </div>
-
-      <div class="pricing-card">
-        <div class="pricing-name">Custom</div>
-        <div class="pricing-tagline">Fully yours, designed and built from scratch</div>
-        <div class="pricing-timeline">Delivered in 4–5 weeks</div>
-        <ul class="pricing-features">
-          <li>Fully custom design, no template</li>
-          <li>Full brand identity available (logo, colors, style guide)</li>
-          <li>Unlimited pages</li>
-          <li>Full SEO setup</li>
-          <li>Food/Product Photography available</li>
-        </ul>
-        <a href="#contact" class="pricing-cta">Get Started</a>
-      </div>
-
-    </div>
-    <p class="pricing-addon">Need ongoing support after launch? <strong>Maintenance &amp; care plans</strong> are available as an add-on for any package.</p>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-  <div class="section-label">Get In Touch</div>
-  <h2 class="section-title">Let's build something great</h2>
-  <p class="section-sub">Lumi takes on a limited number of projects each quarter. Tell us about yours and let's see if we're a good fit.</p>
-  <form class="contact-form" action="https://formsubmit.co/hello@lumidesign.studio" method="POST">
-    <input type="hidden" name="_subject" value="New project inquiry from Lumi contact form" />
-    <input type="hidden" name="_captcha" value="false" />
-    <input type="hidden" name="_next" value="https://lumidesign.studio/thank-you.html" />
-    <input type="text" name="_honey" style="display:none" />
-
-    <div class="form-row">
-      <div class="form-group">
-        <label>Name</label>
-        <input type="text" name="name" placeholder="Your name" required />
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" name="email" placeholder="hello@email.com" required />
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group">
-        <label>Phone Number</label>
-        <input type="tel" name="phone" placeholder="(123) 456-7890" required />
-      </div>
-    </div>
-    <div class="form-group">
-      <label>Select a package</label>
-      <select name="package">
-        <option value="">Select one...</option>
-        <option>Starter</option>
-        <option>Growth</option>
-        <option>Custom</option>
-        <option>Something else</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label>Tell me about your project</label>
-      <textarea name="message" placeholder="What are you working on? Goals, timeline, budget — anything helps."></textarea>
-    </div>
-    <button type="submit" class="form-submit">Send Message →</button>
-  </form>
-</section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-branding">
-      <img src="images/Logo-Main.svg" alt="Lumi Design Logo" class="footer-logo">
-      <a href="mailto:hello@lumidesign.studio" class="footer-links a" style="font-size: .85rem; color:#D25D41; text-decoration: none; transition: color .2s;">hello@lumidesign.studio</a>
-    </div>
-    
-    <div class="footer-social">
-      <a href="https://www.instagram.com/lumi_designco/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="images/insta.svg" alt="Instagram"></a>
-      <a href="https://www.facebook.com/profile.php?id=61578614456375" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="images/facebook.svg" alt="Facebook"></a>
-      <a href="https://www.linkedin.com/in/savroe/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="images/linked.svg" alt="LinkedIn"></a>
-    </div>
-    <p class="footer-copy">© 2026 Lumi Design. All rights reserved.</p>
   </footer>
-
-  <script>
-    // SDM card hover overlay
-    const sdmCard = document.querySelector('.work-card');
-    const sdmOverlay = sdmCard.querySelector('.sdm-overlay');
-    sdmCard.addEventListener('mouseenter', () => sdmOverlay.style.opacity = '1');
-    sdmCard.addEventListener('mouseleave', () => sdmOverlay.style.opacity = '0');
-
-    // Urban Jungle card hover overlay
-    const ujCard = document.querySelector('.uj-card');
-    const ujOverlay = ujCard.querySelector('.uj-overlay');
-    ujCard.addEventListener('mouseenter', () => ujOverlay.style.opacity = '1');
-    ujCard.addEventListener('mouseleave', () => ujOverlay.style.opacity = '0');
-
-    // Smooth reveal on scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.style.opacity = '1';
-          e.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.service-card, .work-card, .process-step, .testimonial-card').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(24px)';
-      el.style.transition = 'opacity .5s ease, transform .5s ease';
-      observer.observe(el);
-    });
-
-    // Contact form is now handled by FormSubmit service
-  </script>
+</div>
 
 </body>
 </html>
