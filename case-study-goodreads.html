@@ -253,6 +253,20 @@
   .reader ul { margin: 0 0 10px; padding-left: 20px; }
   .reader li { font-size: 14px; color: var(--ink-soft); margin-bottom: 6px; }
   .reader .small { font-size: 12.5px; color: var(--ink-soft); margin: 0; }
+
+  /* problem -> solution pairs */
+  .fix-list { gap: 0; }
+  .fix-list li.pair { padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .fix-list li.pair:first-child { padding-top: 0; }
+  .fix-list li.pair:last-child { border-bottom: 0; }
+  .pair .lbl { font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); display: block; margin-bottom: 2px; }
+  .pair .prob { display: flex; align-items: center; gap: 12px; color: var(--ink-soft); margin-bottom: 12px; }
+  .pair .prob .n { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: var(--line); color: var(--ink-soft); font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center; }
+  .pair .prob .txt { font-size: 14px; }
+  .pair .sol { display: flex; gap: 12px; align-items: flex-start; margin-left: 13px; padding-left: 25px; border-left: 2px solid var(--accent); }
+  .pair .sol .lbl { color: var(--accent); font-weight: 500; }
+  .pair .sol strong { display: block; font-size: 16px; color: var(--ink); margin: 0 0 4px; }
+  .pair .sol .d { font-size: 14px; color: var(--ink-soft); display: block; }
 </style>
 </head>
 <body>
@@ -331,7 +345,7 @@
 
   <div class="block">
     <h2>The redesign</h2>
-    <p>Each change answers one of the problems above. I kept the familiar structure of a search bar and rows of books so the page still feels like Goodreads, and made each row more useful.</p>
+    <p>Here is how the new design answers each of the five problems above, in the same order. I kept the familiar search bar and rows of books so the page still feels like Goodreads, and made each row more useful.</p>
   </div>
 
   <div class="compare">
@@ -340,11 +354,11 @@
       <figcaption>After: concept mockup</figcaption>
     </figure>
     <ol class="fix-list">
-      <li><span class="was">Problem 1: repeats</span><strong>Each book gets one place on the page.</strong><span class="d">Personal picks, trending books and curated lists each show different titles, so scrolling always shows something new.</span></li>
-      <li><span class="was">Problem 2: covers only</span><strong>Cards carry the details readers use to decide.</strong><span class="d">Rating and number of ratings, genre, year, page count and a one-sentence summary sit beside the cover. In the Trending row, rating and genre sit under each cover.</span></li>
-      <li><span class="was">Problem 3: unclear reasons</span><strong>Say where picks come from.</strong><span class="d">The section reads "Based on your ratings and shelved books", so the reason for the picks is stated up front. A quick "+" adds a book to Want to Read without leaving the page.</span></li>
-      <li><span class="was">Problem 4: no way to narrow</span><strong>Filter chips at the top.</strong><span class="d">Genre, Length and Mood sit right under the search bar, with a filter icon for everything else, so readers can steer Discover without leaving it.</span></li>
-      <li><span class="was">Problem 5: how people find books</span><strong>Top Lists built around how books spread.</strong><span class="d">Tiles like "Read before you watch", "Halloween SZN" and "BookTok favorites" give readers a reason to tap, and a Trending row shows what is being shelved most this week.</span></li>
+      <li class="pair"><div class="prob"><span class="n">1</span><div><span class="lbl">Problem</span><span class="txt">The same books repeat</span></div></div><div class="sol"><div><span class="lbl">Solution</span><strong>Each book gets one place on the page.</strong><span class="d">Personal picks, trending books and curated lists each show different titles, so scrolling always shows something new.</span></div></div></li>
+      <li class="pair"><div class="prob"><span class="n">2</span><div><span class="lbl">Problem</span><span class="txt">Covers carry all the weight</span></div></div><div class="sol"><div><span class="lbl">Solution</span><strong>Cards carry the details readers use to decide.</strong><span class="d">Rating and number of ratings, genre, year, page count and a one-sentence summary sit beside the cover. In the Trending row, rating and genre sit under each cover.</span></div></div></li>
+      <li class="pair"><div class="prob"><span class="n">3</span><div><span class="lbl">Problem</span><span class="txt">“Because you…” does not say why</span></div></div><div class="sol"><div><span class="lbl">Solution</span><strong>Say where the picks come from.</strong><span class="d">The section reads “Based on your ratings and shelved books”, so the reason for the picks is stated up front. A quick “+” adds a book to Want to Read without leaving the page.</span></div></div></li>
+      <li class="pair"><div class="prob"><span class="n">4</span><div><span class="lbl">Problem</span><span class="txt">No way to narrow things down</span></div></div><div class="sol"><div><span class="lbl">Solution</span><strong>Filter chips at the top.</strong><span class="d">Genre, Length and Mood sit right under the search bar, with a filter icon for everything else, so readers can steer Discover without leaving it.</span></div></div></li>
+      <li class="pair"><div class="prob"><span class="n">5</span><div><span class="lbl">Problem</span><span class="txt">It is not built around how people find books now</span></div></div><div class="sol"><div><span class="lbl">Solution</span><strong>Top Lists built around how books spread.</strong><span class="d">Tiles like “Read before you watch”, “Halloween SZN” and “BookTok favorites” give readers a reason to tap, and a Trending row shows what is being shelved most this week.</span></div></div></li>
     </ol>
   </div>
 
