@@ -308,6 +308,14 @@
   .qd-list strong { display: block; font-size: 14.5px; color: var(--ink); }
   .qd-list span { display: block; font-size: 13.5px; color: var(--ink-soft); }
   @media (max-width: 800px) { .qd { grid-template-columns: 1fr; gap: 20px; } }
+  /* path */
+  .path { list-style: none; margin: 8px 0 8px; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; counter-reset: p; }
+  .path li { position: relative; border: 1px solid var(--line); border-radius: 10px; padding: 16px 14px; display: flex; flex-direction: column; gap: 6px; }
+  .path .sn { width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center; }
+  .path strong { font-size: 14.5px; color: var(--ink); }
+  .path .sd { font-size: 13px; color: var(--ink-soft); line-height: 1.5; }
+  @media (max-width: 1000px) { .path { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .path { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -383,6 +391,13 @@
     <h2>Who it is for</h2>
     <p>I designed for heavy readers: people who read often, already know what they like, and are quickest to notice a page that repeats itself or ignores their taste. They often hear about books somewhere else, such as social media, friends, or authors they follow, so Goodreads is often the place where they check or log a book, not where they first find it.</p>
   </div>
+
+  <div class="block">
+    <h2>From problems to design</h2>
+    <p>This is the path from the page as it is today to the redesign below.</p>
+  </div>
+
+  <ol class="path"><li><span class="sn">1</span><strong>Named the problems</strong><span class="sd">I used Discover as a heavy reader would and wrote down what slowed me down, then checked those against reviews and critiques of the app.</span></li><li><span class="sn">2</span><strong>Talked to readers</strong><span class="sd">I had two casual conversations with readers about how they find books. Both found their next read somewhere else first and used Goodreads to check it.</span></li><li><span class="sn">3</span><strong>Looked at other apps</strong><span class="sd">I compared how other book and recommendation apps help people decide, and noted what Goodreads leaves out.</span></li><li><span class="sn">4</span><strong>Sketched a basic layout</strong><span class="sd">I listed what a better page needs: top books, new books, picks from reading history, each with a rating, genre, year, and a one-line summary.</span></li><li><span class="sn">5</span><strong>Designed it in Figma</strong><span class="sd">I turned the layout into my own design, keeping Goodreads’ familiar feel, and checked each choice against the five problems.</span></li></ol>
 
   <div class="block">
     <h2>The redesign</h2>
