@@ -316,6 +316,9 @@
   .path .sd { font-size: 13px; color: var(--ink-soft); line-height: 1.5; }
   @media (max-width: 1000px) { .path { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (max-width: 560px) { .path { grid-template-columns: 1fr; } }
+  .sol img.mini { display: block; width: 100%; max-width: 380px; margin: 12px 0 10px; border-radius: 10px; border: 1px solid var(--line); }
+  .sol .why { margin-top: 0; }
+  .sol .why strong { display: inline; font-size: inherit; }
 </style>
 </head>
 <body>
@@ -411,21 +414,11 @@
     </figure>
     <ol class="fix-list">
       <li class="pair"><div class="prob"><span class="n">1</span><div><span class="lbl">Problem</span><span class="txt">The same books repeat</span></div></div><div class="sol"><div><span class="lbl">Solution</span><strong>Each book gets one place on the page.</strong><span class="d">Personal picks, trending books and curated lists each show different titles, so scrolling always shows something new.</span></div></div></li>
-      <li class="pair"><div class="prob"><span class="n">2</span><div><span class="lbl">Problem</span><span class="txt">Covers carry all the weight</span></div></div><div class="sol"><div><span class="lbl">Solution</span><strong>Cards carry the details readers use to decide.</strong><span class="d">Rating and number of ratings, genre, year, page count and a one-sentence summary sit beside the cover. In the Trending row, rating and genre sit under each cover.</span></div></div></li>
+      <li class="pair"><div class="prob"><span class="n">2</span><div><span class="lbl">Problem</span><span class="txt">Covers carry all the weight</span></div></div><div class="sol"><div><span class="lbl">Solution</span><strong>Cards carry the details readers use to decide.</strong><span class="d">Rating and number of ratings, genre, year, page count and a one-sentence summary sit beside the cover. In the Trending row, rating and genre sit under each cover.</span><img class="mini" src="images/goodreads-card-zoom.webp" alt="A Picked for you card with cover, title, author, rating, genre, year, page count, summary and a plus button"><span class="d why"><strong>Why each detail is there:</strong> rating shows how well-liked a book is, genre and year say what kind of story it is, page count shows the time it will take, and the summary gives the premise without spoilers. The “+” saves it in one tap.</span></div></div></li>
       <li class="pair"><div class="prob"><span class="n">3</span><div><span class="lbl">Problem</span><span class="txt">“Because you…” does not say why</span></div></div><div class="sol"><div><span class="lbl">Solution</span><strong>Say where the picks come from.</strong><span class="d">The section reads “Based on your ratings and shelved books”, so the reason for the picks is stated up front. A quick “+” adds a book to Want to Read without leaving the page.</span></div></div></li>
       <li class="pair"><div class="prob"><span class="n">4</span><div><span class="lbl">Problem</span><span class="txt">No way to narrow things down</span></div></div><div class="sol"><div><span class="lbl">Solution</span><strong>Filter chips at the top.</strong><span class="d">Genre, Length and Mood sit right under the search bar, with a filter icon for everything else, so readers can steer Discover without leaving it.</span></div></div></li>
       <li class="pair"><div class="prob"><span class="n">5</span><div><span class="lbl">Problem</span><span class="txt">It is not built around how people find books now</span></div></div><div class="sol"><div><span class="lbl">Solution</span><strong>Top Lists built around how books spread.</strong><span class="d">Tiles like “Read before you watch”, “Halloween SZN” and “BookTok favorites” give readers a reason to tap, and a Trending row shows what is being shelved most this week.</span></div></div></li>
     </ol>
-  </div>
-
-  <div class="block">
-    <h2>Why these quick details</h2>
-    <p>Problem 2 was cards that show a cover and nothing else. Each card now adds a few small details, chosen because they are what readers check before deciding whether to open a book.</p>
-  </div>
-
-  <div class="qd">
-    <img src="images/goodreads-card-zoom.webp" alt="A Picked for you card showing cover, title, author, star rating, genre, year, page count, a one-sentence summary, and a plus button">
-    <ul class="qd-list"><li><strong>Rating and count</strong><span>Shows at a glance how well-liked a book is, and how many readers that is based on.</span></li><li><strong>Genre</strong><span>Tells readers whether it is the kind of story they want, without opening the book.</span></li><li><strong>Year</strong><span>Shows whether it is a new release or an older favorite.</span></li><li><strong>Page count</strong><span>Helps readers judge how much time the book will take.</span></li><li><strong>One-sentence summary</strong><span>A short, spoiler-free premise, so readers do not have to open every book to learn what it is about.</span></li><li><strong>The “+” button</strong><span>Saves the book to Want to Read in one tap, without leaving Discover.</span></li></ul>
   </div>
 
   <div class="block">
