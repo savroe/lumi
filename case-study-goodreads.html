@@ -241,6 +241,18 @@
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .plist .tag.rev { color: #6FD0E8; border-color: #6FD0E8; background: rgba(111,208,232,0.10); } }
   .plist .more a:not(.tag) { color: var(--accent); text-underline-offset: 2px; }
   .plist .more a:not(.tag):hover { color: var(--accent-hover); }
+
+  .plist .tag.int { color: #17705F; border-color: #17705F; background: rgba(78,201,176,0.16); }
+  :root[data-theme="dark"] .plist .tag.int { color: #4EC9B0; border-color: #4EC9B0; background: rgba(78,201,176,0.12); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .plist .tag.int { color: #4EC9B0; border-color: #4EC9B0; background: rgba(78,201,176,0.12); } }
+  .reader { border: 1px solid var(--line); border-radius: 12px; padding: 22px 24px; margin: 16px 0 0; }
+  .reader .who { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+  .reader .who .tag { font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 100px; padding: 3px 10px; border: 1px solid #17705F; color: #17705F; background: rgba(78,201,176,0.16); }
+  :root[data-theme="dark"] .reader .who .tag { color: #4EC9B0; border-color: #4EC9B0; background: rgba(78,201,176,0.12); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .reader .who .tag { color: #4EC9B0; border-color: #4EC9B0; background: rgba(78,201,176,0.12); } }
+  .reader ul { margin: 0 0 10px; padding-left: 20px; }
+  .reader li { font-size: 14px; color: var(--ink-soft); margin-bottom: 6px; }
+  .reader .small { font-size: 12.5px; color: var(--ink-soft); margin: 0; }
 </style>
 </head>
 <body>
@@ -300,21 +312,36 @@
     <h2>What gets in the way</h2>
     <p>I went through the page as a reader looking for a book to start this weekend. Five problems stood out.</p>
     <ol class="plist">
-      <li><details open><summary><strong>The same books repeat.</strong></summary><div class="more"><p>The same title can sit in three rows on one screen. <em>The Witch</em> appears in Trending, New releases this month and New releases this year. When the page repeats itself, it stops feeling like it knows my taste.</p><p>A 2018 <a href="https://ixd.prattsi.org/2018/01/design-critique-goodreads-ios-app-2/" target="_blank" rel="noopener">design critique of the iOS app</a> found avid readers kept seeing the same recommendations, and <a href="https://unstar.app/vi/blog/goodreads-storygraph-fable-hardcover-bookly-reading-tracker-apps-ranked-2026" target="_blank" rel="noopener">reader reviews summarized by Unstar</a> describe recommendations for books already read.</p><span class="tag obs">Observed in the app</span><a class="tag rev" href="https://unstar.app/vi/blog/goodreads-storygraph-fable-hardcover-bookly-reading-tracker-apps-ranked-2026" target="_blank" rel="noopener">Mentioned in reviews ↗</a><span class="tag test">To test in interviews</span></div></details></li>
+      <li><details open><summary><strong>The same books repeat.</strong></summary><div class="more"><p>The same title can sit in three rows on one screen. <em>The Witch</em> appears in Trending, New releases this month and New releases this year. When the page repeats itself, it stops feeling like it knows my taste.</p><p>A 2018 <a href="https://ixd.prattsi.org/2018/01/design-critique-goodreads-ios-app-2/" target="_blank" rel="noopener">design critique of the iOS app</a> found avid readers kept seeing the same recommendations, and <a href="https://unstar.app/vi/blog/goodreads-storygraph-fable-hardcover-bookly-reading-tracker-apps-ranked-2026" target="_blank" rel="noopener">reader reviews summarized by Unstar</a> describe recommendations for books already read.</p><p>A reader I interviewed also said she sees the same books on Discover.</p><span class="tag obs">Observed in the app</span> <a class="tag rev" href="https://unstar.app/vi/blog/goodreads-storygraph-fable-hardcover-bookly-reading-tracker-apps-ranked-2026" target="_blank" rel="noopener">Mentioned in reviews ↗</a><span class="tag int">Heard in 1 interview</span></div></details></li>
       <li><details><summary><strong>Covers carry all the weight.</strong></summary><div class="more"><p>Cards show a cover and nothing else. There is no star rating, genre or summary, and those are the first things I check when I decide whether to read something.</p><span class="tag obs">Observed in the app</span><span class="tag own">My own habits</span><span class="tag test">To test in interviews</span></div></details></li>
       <li><details><summary><strong>"Because you…" does not say why.</strong></summary><div class="more"><p>The row names a book I enjoyed, but not what it has in common with the books below it, so I can't judge whether the match makes sense.</p><span class="tag obs">Observed in the app</span><span class="tag test">To test in interviews</span></div></details></li>
       <li><details><summary><strong>No way to narrow things down.</strong></summary><div class="more"><p>There are no genre, length or mood controls on the page. The only way to steer is to leave Discover and search.</p><p>Reviews raise the same complaint about narrowing a want-to-read list by genre or page count (<a href="https://unstar.app/vi/blog/goodreads-storygraph-fable-hardcover-bookly-reading-tracker-apps-ranked-2026" target="_blank" rel="noopener">Unstar</a>).</p><span class="tag obs">Observed in the app</span><a class="tag rev" href="https://unstar.app/vi/blog/goodreads-storygraph-fable-hardcover-bookly-reading-tracker-apps-ranked-2026" target="_blank" rel="noopener">Mentioned in reviews ↗</a><span class="tag test">To test in interviews</span></div></details></li>
-      <li><details><summary><strong>It is not built around how people find books now.</strong></summary><div class="more"><p>I often hear about a book on TikTok and then search it on Goodreads to check the rating. Discover doesn't pick up that moment, such as books that are being talked about or adapted into a movie or show.</p><span class="tag own">My own experience</span><span class="tag test">To test in interviews</span></div></details></li>
+      <li><details><summary><strong>It is not built around how people find books now.</strong></summary><div class="more"><p>I often hear about a book on TikTok and then search it on Goodreads to check the rating. Discover doesn't pick up that moment, such as books that are being talked about or adapted into a movie or show.</p><p>The reader I interviewed also finds books through friends and authors she follows, not through Discover.</p><span class="tag own">My own experience</span><span class="tag int">Heard in 1 interview</span></div></details></li>
     </ol>
     <p>The numbers match the pins on the screenshots, and each one opens for more. These come from the screens and from my own use as a heavy reader. I am treating them as hypotheses until I have talked with other readers.</p>
-    <p class="pill-key">Pink: seen in the app. Purple: my own experience. Blue: also mentioned in reviews or critiques (secondary sources, not my own research). Dashed: still to confirm with readers.</p>
+    <p class="pill-key">Pink: seen in the app. Purple: my own experience. Blue: also mentioned in reviews or critiques (secondary sources, not my own research). Green: heard in a reader interview (one reader so far). Dashed: still to confirm with readers.</p>
       </div>
     </div>
   </div>
 
   <div class="block">
+    <h2>What I heard from a reader</h2>
+    <p>I talked with a neighbor I often talk about books with. These notes come from that one conversation, and I plan to talk with more readers.</p>
+    <div class="reader">
+      <div class="who"><span class="tag">Reader 1</span><span class="tag">Retired</span><span class="tag">100+ books a year</span><span class="tag">Rom-com fan</span></div>
+      <ul>
+        <li>Logs everything she reads in Goodreads.</li>
+        <li>Finds new books through friends and authors she follows, not through Discover.</li>
+        <li>Sees the same books on Discover.</li>
+        <li>Says the recommendations do not fit her taste.</li>
+      </ul>
+      <p class="small">Paraphrased from a conversation, not a recording. Details are limited to protect her privacy.</p>
+    </div>
+  </div>
+
+  <div class="block">
     <h2>Who it is for</h2>
-    <p>I designed for heavy readers: people who read often, already know what they like, and are quickest to notice a page that repeats itself or ignores their taste. They also tend to find books through social media, so Goodreads is often the place where they check a recommendation, not where they first hear about it.</p>
+    <p>I designed for heavy readers: people who read often, already know what they like, and are quickest to notice a page that repeats itself or ignores their taste. They often hear about books somewhere else, such as social media, friends, or authors they follow, so Goodreads is often the place where they check or log a book, not where they first find it.</p>
   </div>
 
   <div class="block">
