@@ -213,6 +213,24 @@
   .annot-list .block { margin-top: 0; }
   .annot-list .problem-list { margin-top: 16px; }
   @media (max-width: 900px) { .annot { grid-template-columns: 1fr; gap: 28px; } .annot-phones { position: static; max-width: 520px; margin: 0 auto; } }
+
+  /* compact problem list */
+  .plist { list-style: none; padding: 0; margin: 16px 0; border-top: 1px solid var(--line); counter-reset: n; }
+  .plist li { border-bottom: 1px solid var(--line); margin: 0; counter-increment: n; }
+  .plist summary { display: flex; align-items: center; gap: 12px; padding: 10px 4px; min-height: 48px; cursor: pointer; list-style: none; border-radius: 6px; }
+  .plist summary::-webkit-details-marker { display: none; }
+  .plist summary::before { content: counter(n); flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center; }
+  .plist summary strong { flex: 1; font-size: 15px; font-weight: 500; color: var(--ink); }
+  .plist summary::after { content: ""; flex-shrink: 0; width: 7px; height: 7px; margin: 0 6px; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg); transition: transform 0.2s ease; }
+  .plist details[open] summary::after { transform: rotate(-135deg) translate(-2px, -2px); }
+  .plist summary:hover strong { color: var(--accent); }
+  .plist summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .plist .more { padding: 0 4px 14px 42px; }
+  .plist .more p { margin: 0 0 10px; font-size: 14px; color: var(--ink-soft); }
+  .plist .tag { display: inline-block; margin: 0 6px 4px 0; font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 100px; padding: 3px 10px; border: 1px solid; }
+  .plist .tag.obs { color: var(--accent); border-color: var(--accent); background: rgba(199,42,124,0.08); }
+  .plist .tag.own { color: var(--accent-hover); border-color: var(--accent-hover); background: rgba(123,50,148,0.08); }
+  @media (prefers-reduced-motion: reduce) { .plist summary::after { transition: none; } }
 </style>
 </head>
 <body>
@@ -271,14 +289,14 @@
       <div class="block">
     <h2>What gets in the way</h2>
     <p>I went through the page as a reader looking for a book to start this weekend. Five problems stood out.</p>
-    <ol class="problem-list">
-      <li><div><strong>The same books repeat.</strong><span>The same title can sit in three rows on one screen. <em>The Witch</em> appears in Trending, New releases this month and New releases this year. When the page repeats itself, it stops feeling like it knows my taste.</span><span class="tag">Observed in the app</span></div></li>
-      <li><div><strong>Covers carry all the weight.</strong><span>Cards show a cover and nothing else. There is no star rating, genre or summary, and those are the first things I check when I decide whether to read something.</span><span class="tag">Observed in the app + my own habits</span></div></li>
-      <li><div><strong>"Because you…" does not say why.</strong><span>The row names a book I enjoyed, but not what it has in common with the books below it, so I can't judge whether the match makes sense.</span><span class="tag">Observed in the app</span></div></li>
-      <li><div><strong>No way to narrow things down.</strong><span>There are no genre, length or mood controls on the page. The only way to steer is to leave Discover and search.</span><span class="tag">Observed in the app</span></div></li>
-      <li><div><strong>It is not built around how people find books now.</strong><span>I often hear about a book on TikTok and then search it on Goodreads to check the rating. Discover doesn't pick up that moment, such as books that are being talked about or adapted into a movie or show.</span><span class="tag">My own experience</span></div></li>
+    <ol class="plist">
+      <li><details open><summary><strong>The same books repeat.</strong></summary><div class="more"><p>The same title can sit in three rows on one screen. <em>The Witch</em> appears in Trending, New releases this month and New releases this year. When the page repeats itself, it stops feeling like it knows my taste.</p><span class="tag obs">Observed in the app</span></div></details></li>
+      <li><details><summary><strong>Covers carry all the weight.</strong></summary><div class="more"><p>Cards show a cover and nothing else. There is no star rating, genre or summary, and those are the first things I check when I decide whether to read something.</p><span class="tag obs">Observed in the app</span><span class="tag own">My own habits</span></div></details></li>
+      <li><details><summary><strong>"Because you…" does not say why.</strong></summary><div class="more"><p>The row names a book I enjoyed, but not what it has in common with the books below it, so I can't judge whether the match makes sense.</p><span class="tag obs">Observed in the app</span></div></details></li>
+      <li><details><summary><strong>No way to narrow things down.</strong></summary><div class="more"><p>There are no genre, length or mood controls on the page. The only way to steer is to leave Discover and search.</p><span class="tag obs">Observed in the app</span></div></details></li>
+      <li><details><summary><strong>It is not built around how people find books now.</strong></summary><div class="more"><p>I often hear about a book on TikTok and then search it on Goodreads to check the rating. Discover doesn't pick up that moment, such as books that are being talked about or adapted into a movie or show.</p><span class="tag own">My own experience</span></div></details></li>
     </ol>
-    <p>The numbers match the pins on the screenshots. These come from the screens and from my own use as a heavy reader. I am treating them as hypotheses until I have talked with other readers.</p>
+    <p>The numbers match the pins on the screenshots, and each one opens for more. These come from the screens and from my own use as a heavy reader. I am treating them as hypotheses until I have talked with other readers.</p>
       </div>
     </div>
   </div>
