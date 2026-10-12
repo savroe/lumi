@@ -301,6 +301,13 @@
   @media (max-width: 900px) { .anat { grid-template-columns: repeat(2, minmax(0, 1fr)); } .v2 { grid-template-columns: 1fr; gap: 28px; } }
   @media (max-width: 560px) { .anat { grid-template-columns: 1fr; } }
   @media (max-width: 700px) { .ph-flat { overflow-x: auto; } .zoomwrap { min-width: 640px; } .v2card { flex-direction: column; } .v2card img { width: 80px; height: 115px; } .newel { flex-wrap: wrap; } .v2 > * { min-width: 0; } }
+  /* quick details */
+  .qd { display: grid; grid-template-columns: minmax(0, 440px) minmax(0, 1fr); gap: 36px; align-items: center; margin: 20px 0 8px; }
+  .qd img { width: 100%; display: block; border-radius: 12px; border: 1px solid var(--line); }
+  .qd-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .qd-list strong { display: block; font-size: 14.5px; color: var(--ink); }
+  .qd-list span { display: block; font-size: 13.5px; color: var(--ink-soft); }
+  @media (max-width: 800px) { .qd { grid-template-columns: 1fr; gap: 20px; } }
 </style>
 </head>
 <body>
@@ -397,39 +404,13 @@
   </div>
 
   <div class="block">
-    <h2>Anatomy of a card</h2>
-    <p>Problem 2 was cards that show a cover and nothing else. Here is one “Picked for you” card up close, and what each part is there to do.</p>
+    <h2>Why these quick details</h2>
+    <p>Problem 2 was cards that show a cover and nothing else. Each card now adds a few small details, chosen because they are what readers check before deciding whether to open a book.</p>
   </div>
 
-  <figure class="zoom">
-    <div class="shot-frame ph-flat"><div class="zoomwrap"><img src="images/goodreads-card-zoom.webp" alt="Close-up of a Picked for you card: cover, title, author, star rating with count, genre, year, page count, a one-sentence summary, and a plus button to add to Want to Read"><span class="hl" style="left:28.4%;top:31.0%;width:29.0%;height:9.0%"><span class="pin">1</span></span><span class="hl" style="left:28.6%;top:43.4%;width:20.2%;height:7.6%"><span class="pin">2</span></span><span class="hl" style="left:51.0%;top:43.4%;width:6.1%;height:7.6%"><span class="pin">3</span></span><span class="hl" style="left:59.2%;top:43.4%;width:12.8%;height:7.6%"><span class="pin">4</span></span><span class="hl" style="left:29.0%;top:55.0%;width:54.0%;height:24.5%"><span class="pin">5</span></span><span class="hl" style="left:90.9%;top:9.4%;width:6.5%;height:17.1%"><span class="pin">6</span></span></div></div>
-    <figcaption>After: concept mockup, one card up close</figcaption>
-  </figure>
-
-  <div class="anat"><div class="anat-item"><span class="npin">1</span><div><strong>Rating and count</strong><span>A quick signal of how well-liked the book is. The count shows how many readers the rating comes from.</span></div></div><div class="anat-item"><span class="npin">2</span><div><strong>Genre</strong><span>Tells readers right away whether it is the kind of story they want, without opening the book.</span></div></div><div class="anat-item"><span class="npin">3</span><div><strong>Year</strong><span>Shows whether it is a new release or an older favorite.</span></div></div><div class="anat-item"><span class="npin">4</span><div><strong>Page count</strong><span>Helps readers judge how much time the book will take.</span></div></div><div class="anat-item"><span class="npin">5</span><div><strong>One-sentence summary</strong><span>A short, spoiler-free premise, so readers do not have to open every book to find out what it is about.</span></div></div><div class="anat-item"><span class="npin">6</span><div><strong>The “+” button</strong><span>Saves the book to Want to Read in one tap, without leaving Discover.</span></div></div></div>
-
-  <div class="block">
-    <h2>Version 2 ideas</h2>
-    <p>One reader I talked to asked for a few things my first mockup does not have yet. These are ideas for a second version, not tested designs. The card below shows how they could look.</p>
-  </div>
-
-  <div class="v2">
-    <div class="v2card">
-      <img src="images/goodreads-card-cover.webp" alt="" width="96" height="138">
-      <div class="v2body">
-        <div class="v2t">The Women</div>
-        <div class="v2s">Kristin Hannah</div>
-        <div class="v2r"><span class="st">★★★★☆</span> <b>4.6</b> <span class="v2s">(48k)</span></div>
-        <div class="v2s">Historical Fiction · 2024 · 487 pages</div>
-        <div class="v2d">Follows a young nursing student who enlists in the Army Nurse Corps during the Vietnam War.</div>
-        <div class="newel chips"><span class="pin">1</span><span>Emotional</span><span>Sweeping</span><span>Bittersweet</span></div>
-        <div class="v2act">
-          <span class="newel"><span class="pin">3</span><span class="v2b">Ebook available</span></span>
-          <span class="newel"><span class="pin">2</span><span class="v2b">Not for me</span></span>
-        </div>
-      </div>
-    </div>
-    <ol class="v2list"><li><span class="npin">1</span><div><strong>Descriptor tags</strong><span>Short words like “emotional” or “sweeping” that say how a book feels, so readers can tell books apart beyond genre.</span><span class="tag int">Asked for in 1 interview</span></div></li><li><span class="npin">2</span><div><strong>A “Not for me” option</strong><span>A one-tap way to tell the app a pick is wrong, so later recommendations get better.</span><span class="tag int">Asked for in 1 interview</span></div></li><li><span class="npin">3</span><div><strong>An ebook badge</strong><span>Shows when a book is available as an ebook, so a reader can go straight from choosing to reading.</span><span class="tag int">Asked for in 1 interview</span></div></li><li><span class="npin off">+</span><div><strong>A short list, not a long feed</strong><span>Five to ten books that match what a reader asked for, instead of rows that keep going.</span><span class="tag int">My own idea</span></div></li></ol>
+  <div class="qd">
+    <img src="images/goodreads-card-zoom.webp" alt="A Picked for you card showing cover, title, author, star rating, genre, year, page count, a one-sentence summary, and a plus button">
+    <ul class="qd-list"><li><strong>Rating and count</strong><span>Shows at a glance how well-liked a book is, and how many readers that is based on.</span></li><li><strong>Genre</strong><span>Tells readers whether it is the kind of story they want, without opening the book.</span></li><li><strong>Year</strong><span>Shows whether it is a new release or an older favorite.</span></li><li><strong>Page count</strong><span>Helps readers judge how much time the book will take.</span></li><li><strong>One-sentence summary</strong><span>A short, spoiler-free premise, so readers do not have to open every book to learn what it is about.</span></li><li><strong>The “+” button</strong><span>Saves the book to Want to Read in one tap, without leaving Discover.</span></li></ul>
   </div>
 
   <div class="block">
