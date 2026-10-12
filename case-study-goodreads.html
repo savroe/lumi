@@ -194,6 +194,25 @@
   .fix-list strong { display: block; font-size: 16px; color: var(--ink); margin: 2px 0 4px; }
   .fix-list span.d { font-size: 14px; color: var(--ink-soft); display: block; }
   @media (max-width: 760px) { .compare { grid-template-columns: 1fr; } .compare .shot-frame { max-width: 340px; margin: 0 auto; } }
+
+  /* annotated screenshots */
+  .annot { display: grid; grid-template-columns: minmax(0, 560px) minmax(0, 1fr); gap: 48px; align-items: start; margin: 32px 0 40px; }
+  .annot-phones { display: flex; gap: 18px; position: sticky; top: 24px; }
+  .annot-phones figure { margin: 0; flex: 1 1 0; min-width: 0; }
+  .ph { position: relative; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+  .ph img { width: 100%; display: block; }
+  .hl { position: absolute; border: 2px solid var(--accent); border-radius: 6px; background: rgba(199,42,124,0.05); }
+  .hl.r .pin { left: auto; right: -2px; transform: translate(45%, -55%); }
+  .problem-list span.tag { display: inline-block; }
+  .pin {
+    position: absolute; left: -2px; top: -2px; transform: translate(-45%, -45%);
+    width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: #fff;
+    font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 0 2px var(--paper);
+  }
+  .annot-list .block { margin-top: 0; }
+  .annot-list .problem-list { margin-top: 16px; }
+  @media (max-width: 900px) { .annot { grid-template-columns: 1fr; gap: 28px; } .annot-phones { position: static; max-width: 520px; margin: 0 auto; } }
 </style>
 </head>
 <body>
@@ -237,18 +256,19 @@
     <p>Discover opens with a search bar and one large editorial card, followed by rows of book covers. Two rows are personal ("Because you enjoyed…", "Because you shelved…"). Below them are generic rows: trending, most read this week, and new releases this month and this year.</p>
   </div>
 
-  <div class="phones">
-    <figure>
-      <div class="shot-frame"><img src="images/goodreads-before-1.webp" alt="Goodreads Discover on iPhone: a Romantasy genre report card, then rows titled Because you enjoyed The Night We Met and Because you shelved Dear Debbie"></div>
-      <figcaption>Before: the top of Discover</figcaption>
-    </figure>
-    <figure>
-      <div class="shot-frame"><img src="images/goodreads-before-2.webp" alt="Goodreads Discover scrolled down: rows titled Trending with Goodreads members, Most read this week, New releases this month and New releases this year"></div>
-      <figcaption>Before: further down the page</figcaption>
-    </figure>
-  </div>
-
-  <div class="block">
+  <div class="annot">
+    <div class="annot-phones">
+      <figure>
+        <div class="ph"><img src="images/goodreads-before-1.webp" alt="Goodreads Discover on iPhone: a Romantasy genre report card, then rows titled Because you enjoyed The Night We Met and Because you shelved Dear Debbie"><span class="hl" style="left:2.7%;top:8.0%;width:88.5%;height:5.1%"><span class="pin">4</span></span><span class="hl r" style="left:3.0%;top:48.5%;width:94.0%;height:2.8%"><span class="pin">3</span></span><span class="hl r" style="left:3.0%;top:70.7%;width:94.0%;height:2.8%"><span class="pin">3</span></span><span class="hl" style="left:3.3%;top:54.0%;width:96.7%;height:14.0%"><span class="pin">2</span></span></div>
+        <figcaption>Before: top of Discover</figcaption>
+      </figure>
+      <figure>
+        <div class="ph"><img src="images/goodreads-before-2.webp" alt="Goodreads Discover scrolled down: rows titled Trending with Goodreads members, Most read this week, New releases this month and New releases this year"><span class="hl r" style="left:3.5%;top:15.9%;width:76.0%;height:2.7%"><span class="pin">5</span></span><span class="hl" style="left:58.3%;top:21.8%;width:19.1%;height:13.3%"><span class="pin">1</span></span><span class="hl" style="left:30.9%;top:66.1%;width:19.0%;height:13.2%"><span class="pin">1</span></span></div>
+        <figcaption>Before: further down</figcaption>
+      </figure>
+    </div>
+    <div class="annot-list">
+      <div class="block">
     <h2>What gets in the way</h2>
     <p>I went through the page as a reader looking for a book to start this weekend. Five problems stood out.</p>
     <ol class="problem-list">
@@ -258,7 +278,9 @@
       <li><div><strong>No way to narrow things down.</strong><span>There are no genre, length or mood controls on the page. The only way to steer is to leave Discover and search.</span><span class="tag">Observed in the app</span></div></li>
       <li><div><strong>It is not built around how people find books now.</strong><span>I often hear about a book on TikTok and then search it on Goodreads to check the rating. Discover doesn't pick up that moment, such as books that are being talked about or adapted into a movie or show.</span><span class="tag">My own experience</span></div></li>
     </ol>
-    <p>These come from the screens and from my own use as a heavy reader. I am treating them as hypotheses until I have talked with other readers.</p>
+    <p>The numbers match the pins on the screenshots. These come from the screens and from my own use as a heavy reader. I am treating them as hypotheses until I have talked with other readers.</p>
+      </div>
+    </div>
   </div>
 
   <div class="block">
