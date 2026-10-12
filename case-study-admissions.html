@@ -20,29 +20,29 @@
 <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #FFFFFF;
-    --ink: #18181F;
-    --ink-soft: #6B6B76;
-    --line: #E7E6ED;
-    --accent: #C72A7C;
+    --paper: #F6F3CF;
+    --ink: #2B0E15;
+    --ink-soft: #6E5058;
+    --line: #E3DDAA;
+    --accent: #8B162B;
     padding-top: env(safe-area-inset-top, 0px);
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }
   :root:not([data-theme="light"]) {
     @media (prefers-color-scheme: dark) {
-      --paper: #121117;
-      --ink: #EFEEF4;
-      --ink-soft: #A5A3B0;
-      --line: #2B2A34;
-      --accent: #F24EA3;
+      --paper: #2A0A12;
+      --ink: #F6F3CF;
+      --ink-soft: #D9BFB2;
+      --line: #4D1E29;
+      --accent: #F9B6B8;
     }
   }
   :root[data-theme="dark"] {
-    --paper: #121117;
-    --ink: #EFEEF4;
-    --ink-soft: #A5A3B0;
-    --line: #2B2A34;
-    --accent: #F24EA3;
+    --paper: #2A0A12;
+    --ink: #F6F3CF;
+    --ink-soft: #D9BFB2;
+    --line: #4D1E29;
+    --accent: #F9B6B8;
   }
 
   html { scroll-padding-top: env(safe-area-inset-top, 0px); }
@@ -111,11 +111,11 @@
   }
 
   .disclaimer {
-    background: #FBEFF5; border-left: 3px solid var(--accent); border-radius: 4px;
+    background: #FADADC; border-left: 3px solid var(--accent); border-radius: 4px;
     padding: 14px 18px; font-size: 13px; color: var(--ink); margin: 0 0 40px; line-height: 1.6;
   }
-  :root[data-theme="dark"] .disclaimer { background: #2A1A22; }
-  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .disclaimer { background: #2A1A22; } }
+  :root[data-theme="dark"] .disclaimer { background: #3A1019; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .disclaimer { background: #3A1019; } }
 
   .block { margin: 40px 0; }
   .block p { font-size: 14.5px; color: var(--ink-soft); margin: 0 0 14px; }

@@ -20,41 +20,41 @@
 <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #FFFFFF;
-    --ink: #18181F;
-    --ink-soft: #6B6B76;
-    --line: #E7E6ED;
-    --accent: #C72A7C;
-    --accent-hover: #7B3294;
+    --paper: #F6F3CF;
+    --ink: #2B0E15;
+    --ink-soft: #6E5058;
+    --line: #E3DDAA;
+    --accent: #8B162B;
+    --accent-hover: #C9500E;
     padding-top: env(safe-area-inset-top, 0px);
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }
   :root:not([data-theme="light"]) {
     @media (prefers-color-scheme: dark) {
-      --paper: #121117;
-      --ink: #EFEEF4;
-      --ink-soft: #A5A3B0;
-      --line: #2B2A34;
-      --accent: #F24EA3;
-      --accent-hover: #E896F0;
+      --paper: #2A0A12;
+      --ink: #F6F3CF;
+      --ink-soft: #D9BFB2;
+      --line: #4D1E29;
+      --accent: #F9B6B8;
+      --accent-hover: #F37521;
     }
   }
   :root[data-theme="dark"] {
-    --paper: #121117;
-    --ink: #EFEEF4;
-    --ink-soft: #A5A3B0;
-    --line: #2B2A34;
-    --accent: #F24EA3;
-    --accent-hover: #E896F0;
+    --paper: #2A0A12;
+    --ink: #F6F3CF;
+    --ink-soft: #D9BFB2;
+    --line: #4D1E29;
+    --accent: #F9B6B8;
+    --accent-hover: #F37521;
   }
 
   /* gradient tile tokens, derived from the two reference palettes */
-  .grad-synth      { background: linear-gradient(135deg,#E0247A 0%,#7B3294 32%,#332B5E 60%,#1B4965 82%,#4EC9B0 100%); }
-  .grad-synth-warm { background: linear-gradient(135deg,#E0247A 0%,#9A3796 55%,#4A2E6E 100%); }
-  .grad-synth-cool { background: linear-gradient(135deg,#332B5E 0%,#1B4965 55%,#4EC9B0 100%); }
-  .grad-outrun     { background: linear-gradient(135deg,#140F3C 0%,#241B7A 28%,#C4568A 58%,#E896F0 82%,#6FD0E8 100%); }
+  .grad-synth      { background: linear-gradient(135deg,#8B162B 0%,#C9500E 32%,#332B5E 60%,#1B4965 82%,#F37521 100%); }
+  .grad-synth-warm { background: linear-gradient(135deg,#8B162B 0%,#C9500E 55%,#5A1020 100%); }
+  .grad-synth-cool { background: linear-gradient(135deg,#332B5E 0%,#1B4965 55%,#F37521 100%); }
+  .grad-outrun     { background: linear-gradient(135deg,#140F3C 0%,#241B7A 28%,#C4568A 58%,#F37521 82%,#BAD2E8 100%); }
   .grad-outrun-dark{ background: linear-gradient(135deg,#140F3C 0%,#241B7A 55%,#C4568A 100%); }
-  .grad-outrun-pop { background: linear-gradient(135deg,#C4568A 0%,#E896F0 55%,#6FD0E8 100%); }
+  .grad-outrun-pop { background: linear-gradient(135deg,#C4568A 0%,#F37521 55%,#BAD2E8 100%); }
 
   html { scroll-padding-top: env(safe-area-inset-top, 0px); }
   * { box-sizing: border-box; }
@@ -234,9 +234,9 @@
   }
 
   /* gradient placeholders from the Synthwave and Outrun palettes */
-  .grad-synth      { background: linear-gradient(135deg,#E0247A 0%,#7B3294 32%,#332B5E 60%,#1B4965 82%,#4EC9B0 100%); }
-  .grad-outrun     { background: linear-gradient(135deg,#140F3C 0%,#241B7A 28%,#C4568A 58%,#E896F0 82%,#6FD0E8 100%); }
-  .grad-outrun-pop { background: linear-gradient(135deg,#C4568A 0%,#E896F0 55%,#6FD0E8 100%); }
+  .grad-synth      { background: linear-gradient(135deg,#8B162B 0%,#C9500E 32%,#332B5E 60%,#1B4965 82%,#F37521 100%); }
+  .grad-outrun     { background: linear-gradient(135deg,#140F3C 0%,#241B7A 28%,#C4568A 58%,#F37521 82%,#BAD2E8 100%); }
+  .grad-outrun-pop { background: linear-gradient(135deg,#C4568A 0%,#F37521 55%,#BAD2E8 100%); }
 
   @media (prefers-reduced-motion: reduce) {
     .tile-visual, .tile-cover, .tile-bg, .tile-title, .tile-cta .arrow { transition: none; }
@@ -370,7 +370,7 @@
       <!-- PROJECT 4 (coming soon) -->
       <div class="tile soon" aria-label="Coming soon">
         <div class="tile-visual">
-          <div class="tile-bg" style="background:linear-gradient(135deg,#C9B6E4 0%,#F0D3EE 55%,#F9D6E8 100%)"></div>
+          <div class="tile-bg" style="background:#F9B6B8"></div>
         </div>
         <div class="tile-caption">
           <div class="tile-meta">Concept project · 2026</div>
