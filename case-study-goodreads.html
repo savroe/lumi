@@ -267,6 +267,39 @@
   .pair .sol .lbl { color: var(--accent); font-weight: 500; }
   .pair .sol strong { display: block; font-size: 16px; color: var(--ink); margin: 0 0 4px; }
   .pair .sol .d { font-size: 14px; color: var(--ink-soft); display: block; }
+
+  /* anatomy + v2 */
+  .zoom { max-width: 1000px; margin: 28px auto 0; }
+  .zoomwrap { position: relative; }
+  .zoomwrap img { width: 100%; display: block; }
+  .ph-flat { border-radius: 14px; background: #fff; }
+  .anat { max-width: 1000px; margin: 20px auto 8px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .anat-item { display: flex; gap: 12px; align-items: flex-start; border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+  .anat-item strong, .v2list strong { display: block; font-size: 14.5px; color: var(--ink); margin-bottom: 2px; }
+  .anat-item span:not(.npin), .v2list span:not(.npin):not(.tag) { display: block; font-size: 13px; color: var(--ink-soft); }
+  .npin { flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center; }
+  .npin.off { background: transparent; color: var(--accent); box-shadow: inset 0 0 0 1.5px var(--accent); }
+  .v2 { display: grid; grid-template-columns: minmax(0, 520px) minmax(0, 1fr); gap: 44px; align-items: center; margin: 24px 0 8px; }
+  .v2card { display: flex; gap: 16px; padding: 22px; border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 12px 32px rgba(0,0,0,0.08); background: var(--paper); }
+  .v2card img { width: 96px; height: 138px; object-fit: cover; border-radius: 6px; flex-shrink: 0; }
+  .v2body { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+  .v2t { font-size: 16px; font-weight: 600; }
+  .v2s { font-size: 12.5px; color: var(--ink-soft); }
+  .v2r { font-size: 13px; display: flex; gap: 6px; align-items: center; }
+  .v2r .st { color: var(--accent); letter-spacing: 1px; }
+  .v2d { font-size: 13px; line-height: 1.4; margin: 2px 0 6px; }
+  .newel { position: relative; display: inline-flex; gap: 6px; border-radius: 10px; box-shadow: 0 0 0 2px var(--accent); padding: 4px 6px; width: fit-content; }
+  .newel .pin { left: 0; top: 0; transform: translate(-50%, -50%); }
+  .newel.chips span:not(.pin) { font-size: 12px; padding: 3px 10px; border-radius: 100px; border: 1px solid var(--line); color: var(--ink); background: var(--paper); }
+  .v2act { display: flex; gap: 14px; margin-top: 8px; flex-wrap: wrap; }
+  .v2b { font-size: 12.5px; padding: 5px 12px; border-radius: 8px; border: 1px solid var(--line); color: var(--ink); background: var(--paper); }
+  .v2list { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
+  .v2list li { display: flex; gap: 14px; align-items: flex-start; }
+  .v2list .tag { display: inline-block; margin-top: 6px; font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 100px; padding: 3px 10px; border: 1px solid #17705F; color: #17705F; background: rgba(78,201,176,0.16); }
+  :root[data-theme="dark"] .v2list .tag { color: #4EC9B0; border-color: #4EC9B0; background: rgba(78,201,176,0.12); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .v2list .tag { color: #4EC9B0; border-color: #4EC9B0; background: rgba(78,201,176,0.12); } }
+  @media (max-width: 900px) { .anat { grid-template-columns: repeat(2, minmax(0, 1fr)); } .v2 { grid-template-columns: 1fr; gap: 28px; } }
+  @media (max-width: 560px) { .anat { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -363,13 +396,39 @@
   </div>
 
   <div class="block">
-    <h2>What I would test next</h2>
-    <ul>
-      <li><strong>Do readers notice repeats the way I did?</strong> Interviews with people who read regularly, including some who have left Goodreads, will show whether this is a shared frustration or just mine.</li>
-      <li><strong>Which details matter most on a card?</strong> I would test whether rating, genre, page count and the summary all earn their space, or whether the cards get crowded.</li>
-      <li><strong>Do the filters get used?</strong> I would watch readers try to find a book for a specific mood or length with and without the chips.</li>
-      <li><strong>Do curated lists draw taps?</strong> Lists tied to movies, shows and social trends are my guess about what makes people click, and that needs checking.</li>
-    </ul>
+    <h2>Anatomy of a card</h2>
+    <p>Problem 2 was cards that show a cover and nothing else. Here is one “Picked for you” card up close, and what each part is there to do.</p>
+  </div>
+
+  <figure class="zoom">
+    <div class="shot-frame ph-flat"><div class="zoomwrap"><img src="images/goodreads-card-zoom.webp" alt="Close-up of a Picked for you card: cover, title, author, star rating with count, genre, year, page count, a one-sentence summary, and a plus button to add to Want to Read"><span class="hl" style="left:28.4%;top:31.0%;width:29.0%;height:9.0%"><span class="pin">1</span></span><span class="hl" style="left:28.6%;top:43.4%;width:20.2%;height:7.6%"><span class="pin">2</span></span><span class="hl" style="left:51.0%;top:43.4%;width:6.1%;height:7.6%"><span class="pin">3</span></span><span class="hl" style="left:59.2%;top:43.4%;width:12.8%;height:7.6%"><span class="pin">4</span></span><span class="hl" style="left:29.0%;top:55.0%;width:54.0%;height:24.5%"><span class="pin">5</span></span><span class="hl" style="left:90.9%;top:9.4%;width:6.5%;height:17.1%"><span class="pin">6</span></span></div></div>
+    <figcaption>After: concept mockup, one card up close</figcaption>
+  </figure>
+
+  <div class="anat"><div class="anat-item"><span class="npin">1</span><div><strong>Rating and count</strong><span>A quick signal of how well-liked the book is. The count shows how many readers the rating comes from.</span></div></div><div class="anat-item"><span class="npin">2</span><div><strong>Genre</strong><span>Tells readers right away whether it is the kind of story they want, without opening the book.</span></div></div><div class="anat-item"><span class="npin">3</span><div><strong>Year</strong><span>Shows whether it is a new release or an older favorite.</span></div></div><div class="anat-item"><span class="npin">4</span><div><strong>Page count</strong><span>Helps readers judge how much time the book will take.</span></div></div><div class="anat-item"><span class="npin">5</span><div><strong>One-sentence summary</strong><span>A short, spoiler-free premise, so readers do not have to open every book to find out what it is about.</span></div></div><div class="anat-item"><span class="npin">6</span><div><strong>The “+” button</strong><span>Saves the book to Want to Read in one tap, without leaving Discover.</span></div></div></div>
+
+  <div class="block">
+    <h2>Version 2 ideas</h2>
+    <p>One reader I talked to asked for a few things my first mockup does not have yet. These are ideas for a second version, not tested designs. The card below shows how they could look.</p>
+  </div>
+
+  <div class="v2">
+    <div class="v2card">
+      <img src="images/goodreads-card-cover.webp" alt="" width="96" height="138">
+      <div class="v2body">
+        <div class="v2t">The Women</div>
+        <div class="v2s">Kristin Hannah</div>
+        <div class="v2r"><span class="st">★★★★☆</span> <b>4.6</b> <span class="v2s">(48k)</span></div>
+        <div class="v2s">Historical Fiction · 2024 · 487 pages</div>
+        <div class="v2d">Follows a young nursing student who enlists in the Army Nurse Corps during the Vietnam War.</div>
+        <div class="newel chips"><span class="pin">1</span><span>Emotional</span><span>Sweeping</span><span>Bittersweet</span></div>
+        <div class="v2act">
+          <span class="newel"><span class="pin">3</span><span class="v2b">Ebook available</span></span>
+          <span class="newel"><span class="pin">2</span><span class="v2b">Not for me</span></span>
+        </div>
+      </div>
+    </div>
+    <ol class="v2list"><li><span class="npin">1</span><div><strong>Descriptor tags</strong><span>Short words like “emotional” or “sweeping” that say how a book feels, so readers can tell books apart beyond genre.</span><span class="tag int">Asked for in 1 interview</span></div></li><li><span class="npin">2</span><div><strong>A “Not for me” option</strong><span>A one-tap way to tell the app a pick is wrong, so later recommendations get better.</span><span class="tag int">Asked for in 1 interview</span></div></li><li><span class="npin">3</span><div><strong>An ebook badge</strong><span>Shows when a book is available as an ebook, so a reader can go straight from choosing to reading.</span><span class="tag int">Asked for in 1 interview</span></div></li><li><span class="npin off">+</span><div><strong>A short list, not a long feed</strong><span>Five to ten books that match what a reader asked for, instead of rows that keep going.</span><span class="tag int">My own idea</span></div></li></ol>
   </div>
 
   <div class="block">
