@@ -277,7 +277,7 @@
     <figcaption>After: simplified recreated mockup. The Apply Filters panel, a searchable list with Select All, and the Save Search step.</figcaption>
   </figure>
 
-  <figure class="shot-md">
+  <figure class="shot-md" style="max-width:560px">
     <div class="shot-frame">
       <img src="images/filters-design-3.webp" alt="Redesigned filters: the Patient List with Facility and Level of Care kept in the row as quick filters and a Filters button, next to the Apply Filters slide-out panel with a searchable list, Select All, and Reset and Apply">
     </div>
@@ -287,45 +287,23 @@
   <div class="block">
     <h2>Quick filters</h2>
     <p>Two filters stayed in the row on purpose: <strong>Facility</strong> and <strong>Level of Care</strong>. Clinical staff told us these were the two they used the most, and they called them "quick filters." Keeping them one click away meant the most common searches didn't need the panel at all, while everything else moved inside the Filters button.</p>
-    <div class="qf" role="img" aria-label="Before: four dropdowns in a row. After: two highlighted quick filters, Facility and Level of Care, plus a Filters button.">
+    <div class="qf" style="width:fit-content;max-width:100%" role="img" aria-label="Facility and Level of Care shown as highlighted quick filters, next to a Filters button.">
       <div>
-        <div class="qf-label">Before: every filter in the row</div>
-        <div class="qf-row"><span class="qf-pill">Facility</span><span class="qf-pill">Level of Care</span><span class="qf-pill">Insurance Type</span><span class="qf-pill">Status</span></div>
-      </div>
-      <div>
-        <div class="qf-label">After: two quick filters, the rest in the panel</div>
         <div class="qf-row"><span class="qf-pill hot">Facility</span><span class="qf-pill hot">Level of Care</span><span class="qf-pill btn">Filters</span></div>
         <div class="qf-note"><strong>Quick filters:</strong> the two staff used most stayed one click away.</div>
       </div>
     </div>
-
   </div>
 
-  <div class="clicks">
-    <div>
-      <div class="click-grid" aria-hidden="true"><span class="cb" style="--i:0"></span><span class="cb" style="--i:1"></span><span class="cb" style="--i:2"></span><span class="cb" style="--i:3"></span><span class="cb" style="--i:4"></span><span class="cb" style="--i:5"></span><span class="cb" style="--i:6"></span><span class="cb" style="--i:7"></span><span class="cb" style="--i:8"></span><span class="cb" style="--i:9"></span><span class="cb" style="--i:10"></span><span class="cb" style="--i:11"></span><span class="cb" style="--i:12"></span><span class="cb" style="--i:13"></span><span class="cb" style="--i:14"></span><span class="cb" style="--i:15"></span><span class="cb" style="--i:16"></span><span class="cb" style="--i:17"></span><span class="cb" style="--i:18"></span><span class="cb" style="--i:19"></span><span class="cb" style="--i:20"></span><span class="cb" style="--i:21"></span><span class="cb" style="--i:22"></span><span class="cb" style="--i:23"></span><span class="cb" style="--i:24"></span><span class="cb" style="--i:25"></span><span class="cb" style="--i:26"></span><span class="cb" style="--i:27"></span><span class="cb" style="--i:28"></span><span class="cb" style="--i:29"></span><span class="cb" style="--i:30"></span><span class="cb" style="--i:31"></span><span class="cb" style="--i:32"></span><span class="cb" style="--i:33"></span><span class="cb" style="--i:34"></span><span class="cb" style="--i:35"></span><span class="cb" style="--i:36"></span><span class="cb" style="--i:37"></span><span class="cb" style="--i:38"></span><span class="cb" style="--i:39"></span><span class="cb" style="--i:40"></span><span class="cb" style="--i:41"></span><span class="cb" style="--i:42"></span><span class="cb" style="--i:43"></span><span class="cb" style="--i:44"></span><span class="cb" style="--i:45"></span><span class="cb" style="--i:46"></span><span class="cb" style="--i:47"></span><span class="cb" style="--i:48"></span><span class="cb" style="--i:49"></span></div>
-      <div class="cap">Before: up to 50 clicks to select every value in a category</div>
-    </div>
-    <div class="arrow" aria-hidden="true">→</div>
-    <div class="one">
-      <div class="one-pill"><span class="cb"></span>Select All</div>
-      <div class="big">1 click</div>
-      <div class="cap">After: one click selects them all</div>
-    </div>
+  <div class="block">
+    <h2>What it helped with</h2>
+    <ul>
+      <li><strong>Fewer clicks for nurses.</strong> Selecting every value in a category went from up to 50 individual clicks to one click on Select All.</li>
+      <li><strong>Saved searches saved time.</strong> A filter combination used every day could be saved once and reused in one click, instead of rebuilt each time.</li>
+      <li><strong>Search made long lists manageable.</strong> Some filters can have 500+ options, so being able to search within the list meant no more scrolling to find one name.</li>
+    </ul>
+    <p>Staff gave instant, positive feedback after launch.</p>
   </div>
-  <p class="feedback-line"><strong>Instant, positive feedback</strong> from staff after launch.</p>
-  <script>
-    (function () {
-      var g = document.querySelector('.click-grid');
-      if (!g || !('IntersectionObserver' in window)) return;
-      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      g.classList.add('armed');
-      var io = new IntersectionObserver(function (es) {
-        es.forEach(function (e) { if (e.isIntersecting) { g.classList.add('go'); io.disconnect(); } });
-      }, { threshold: 0.5 });
-      io.observe(g);
-    })();
-  </script>
 
   <div class="block">
     <h2>Reflection</h2>
